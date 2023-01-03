@@ -1,5 +1,5 @@
-# Apple-Clicker
-Are you tired of clicking cookies? Let's try to create an Apple Ckicker by python!
+# Apple-Clicker 苹果点点乐
+点饼干点腻了吧？
 
 ## What is Cookie Clicker?
 Cookie Clicker is a Javascript game released by Orteil on August 8, 2013.
