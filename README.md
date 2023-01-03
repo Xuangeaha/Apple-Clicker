@@ -11,7 +11,7 @@
 语言：Python
 模块：sys、time、random、pygame、tkinter、threading、win10toast、cryptocode、ttkbootstrap
 发布时间：2022-06-20 (Alpha 0.1.0)
-上次更新时间：2023-01-03 (Beta 0.4.1)
+上次更新时间：2023-01-03 (Beta 0.4.0)
 
 ```
 
