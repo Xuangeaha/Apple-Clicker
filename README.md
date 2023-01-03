@@ -1,83 +1,120 @@
-# Apple-Clicker 苹果点点乐
-点饼干点腻了吧？
+# 苹果点点乐 Apple Clicker
 
-## What is Cookie Clicker?
-Cookie Clicker is a Javascript game released by Orteil on August 8, 2013.
+点饼干点腻了吧？尝试一下《苹果点点乐》吧！
 
-It is an "incrementer" game, as proclaimed by Orteil. The point of the game is to bake cookies by clicking on a giant cookie until you have enough cookies to buy upgrades. The seemingly endless gameplay makes it a game that can last an indefinite amount of time, or at least until your device can no longer run it.
+```
+游戏名：苹果点点乐
+游戏英文名：Apple Clicker
+作者：轩哥啊哈OvO
+开发者：轩哥啊哈OvO
+版本：Beta 0.4.0
+语言：Python
+模块：sys、time、random、pygame、tkinter、threading、win10toast、cryptocode、ttkbootstrap
+发布时间：2022-06-20 (Alpha 0.1.0)
+上次更新时间：2023-01-03 (Beta 0.4.1)
 
-It can be found at https://orteil.dashnet.org/cookieclicker/
-It can also be found on Steam.
-The wiki can be found at https://cookieclicker.fandom.com/wiki/Cookie_Clicker_Wiki.
+```
 
-## Progress
-The Apple Cicker's main gaming logic has been finished in alpha.
+## 什么是 Cookie Clicker（饼干点点乐）?
 
-Now I'm focusing on beautifing the interface.
- 
-## Tips
-The latest version of Apple Clicker is open source.
+Cookie Clicker（饼干点点乐）是2013年Orteil发布的一款网页放置类游戏，去年登上Steam后爆火。
 
-Older versions's source is closed (packed by Pyinstaller).
+正如Orteil所称，这是一个“无尽”的游戏。游戏的重点是通过点击一个巨大的饼干来获得饼干，直到你有足够的饼干来购买升级。看似无穷无尽的游戏性使它成为一款可以无限持续的游戏，或者至少持续到你的设备无法再运行为止。
 
-# Update logs
+· Orteil免费开放了Cookie Clicker网页版！`https://orteil.dashnet.org/cookieclicker/`
+· Cookie Clicker的正式版可在Steam上购买：`https://store.steampowered.com/app/1454400/Cookie_Clicker/`
+· Cookie Clicker Wiki：`https://cookieclicker.fandom.com/wiki/Cookie_Clicker_Wiki`
 
-## Beta 0.2.0  2022-06-29
-    ·Using ttkbootstrap to make the tkinter window more beutiful!
-    ·Fix bugs:
-        ·The part of update log textbox sometimes not displaying all. (AC-8)
+## 开发进展
 
-## Beta 0.1.0  2022-06-29
-    ·Add "Update log" module in the about window.
-    ·Fix bugs:
-        ·The price of the buildings don't change when the save was uploaded. (AC-6)
-        ·The dynamic update of information grid sometimes go flashing. (AC-7)
-        
-## Alpha 0.5.0  2022-06-28
-    ·Add the function of save & upload.
-    ·Add the note in the file (in Chinese).
-    ·Add the "__pycache__", "dist", "build" folder into the package.
-    ·Add the .spec file into the package.
-    ·Fix bugs:
-        ·The dynamic update of apple amount sometimes go flashing. (AC-5)
+Apple Clicker的游戏基本运算逻辑已经完成！
 
-## Alpha 0.4.1  2022-06-24
-    ·Add the progress bar of level.
-    ·Add the update log into the package.
-    ·Add the ".idea" folder into the package.
-    ·Fix bugs:
-        ·The increase of apples per second by update goes up too fast. (AC-3)
-        ·The increase of update price goes up too fast. (AC-4)
-        
-## Alpha 0.4.0  2022-06-23
-    ·Add "Statistics" module.
-    ·Add "Upgrades" module.
-    ·Change some game logical data(price, speed, etc.) to adjust the game's difficulty.
-    ·Delete the "Upgrades" button as it has now no use.
-    ·Fix bugs:
-        ·The increase of apples per click goes up too fast. (AC-1)
-        ·The dynamic amount, price, speed of the building "Basket". (AC-2)
+正在开发它的成就系统，预计有超过100个成就。
 
-## Alpha 0.3.1  2022-06-22
-    ·English translation all done!
-    ·A big juicy apple takes the place of "Click!". (PNG Copyright: [.minecraft/assets/textures/item/apple] Minecraft/Mojang™)
-    ·Add tkinter window icon.
-    ·Add a logic that the price of a building will grow gradually as the amount of it grows.
-    ·Add the logic of the increase of apples per click as the amount of buildings increases.
-    ·Add the about tkinter window.
-    ·Change some game logical data(price, speed, etc.) to increase the game's difficulty.
-    ·Change the circulate time of recursion, so as to make the game more smoothly.
-    
-## Alpha 0.3.0  2022-06-21
-    ·English translation half done.
+以后会考虑美化它的窗口，提升游戏体验。
 
-## Alpha 0.2.0  2022-06-21
-    ·Add the information section's dynamic display, buttons of upgrade, save, upload and about(all no use).
-    ·Change the location of some frames to make the tkinter window look better.
-    ·Change some game logical data(price, speed, etc.) to increase the game's difficulty.
-    ·Change the circulate time of recursion, so as to make the game more smoothly.
-    ·The extension name of the file is changed from .py to .pyw.
+# 开发日志
 
-## Alpha 0.1.0  2022-06-20
-    ·Add the basic game logic.
-    ·Add the tkinter window which has information section(no use), information grid, achievement text(no use).
+## Beta 0.4.0 2023-01-03
+
+    ·回退英语翻译，中文翻译已完成一半。
+    ·新增成就系统，已完成30%。
+
+## Beta 0.3.0 2022-07-19
+
+    ·将显示时间从统计文本中移出。
+    ·新增顶部菜单栏。
+    ·移除顶部的“关于”按钮。
+    ·在主窗口和关于窗口的按钮之间放置一些空格。
+    ·修复错误：
+        ·由于ttkbootstrap，游戏开始失败。（AC-9）
+        ·单击“模块”按钮时显示“aa”。（AC-10）
+
+## Beta 0.2.0 2022-06-29
+
+    ·使用ttkbootstrap使tkinter窗口更美观！
+    ·修复错误：
+        ·更新日志文本框的部分有时不显示全部。（AC-8）
+
+## Beta 0.1.0 2022-06-29
+
+    ·在“关于”窗口中添加“更新日志”模块。
+    ·修复错误：
+        ·当保存上传时，建筑的价格不会改变。（AC-6）
+        ·信息网格的动态更新有时会闪烁。（AC-7）
+
+## Alpha 0.5.0 2022-06-28
+
+    ·增加保存和上传功能。
+    ·在文件中添加注释（中文）。
+    ·将“__pycache__”、“dist”、“build”文件夹添加到包中。
+    ·将.spec文件添加到包中。
+    ·修复错误：
+        ·苹果数量的动态更新有时会闪烁。（AC-5）
+
+## Alpha 0.4.1 2022-06-24
+
+    ·添加级别的进度条。
+    ·将更新日志添加到包中。
+    ·将“.idea”文件夹添加到包中。
+    ·修复错误：
+        ·苹果每秒更新的增长速度过快。（AC-3）
+        ·更新价格上涨过快。（AC-4）
+
+## Alpha 0.4.0 2022-06-23
+
+    ·新增“统计”模块。
+    ·新增“升级”模块。
+    ·更改一些游戏逻辑数据（价格、速度等）以调整游戏难度。
+    ·删除“升级”按钮。
+    ·修复错误：
+        ·每点击一次苹果的增长速度太快了。（AC-1）
+        ·建筑“篮子”的动态数量、价格和速度。（AC-2）
+
+## Alpha 0.3.1 2022-06-22
+
+    ·英语翻译全部完成！
+    ·新增苹果PNG图片。（图片版权：[.minecraft/assets/textures/item/apple]minecraft/Mojang™)
+    ·新增添加tkinter窗口图标。
+    ·新增建筑的价格将随着其数量的增长而逐渐增长逻辑。
+    ·新增随着建筑数量的增加，每次点击苹果数增加逻辑。
+    ·新增“关于”窗口。
+    ·更改一些游戏逻辑数据（价格、速度等）以增加游戏难度。
+    ·更改递归的循环时间，以使游戏更流畅。
+
+## Alpha 0.3.0 2022-06-21
+
+    ·英语翻译完成一半啦！
+
+## Alpha 0.2.0 2022-06-21
+
+    ·新增信息部分的动态显示、升级、保存、上传和关于（全部不使用）的按钮。
+    ·更改某些帧的位置以使tkinter窗口看起来更美观。
+    ·更改一些游戏逻辑数据（价格、速度等）以增加游戏难度。
+    ·更改递归的循环时间，以使游戏更流畅。
+    ·文件的扩展名从.py更改为.pyw。
+
+## Alpha 0.1.0 2022-06-20
+
+    ·新增游戏基本逻辑。
+    ·新增tkinter窗口，其中包含信息部分（不使用）、信息网格、成就文本（不使用）。
