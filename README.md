@@ -1,6 +1,6 @@
 # 苹果点点乐 Apple Clicker
 
-点饼干点腻了吧？尝试一下《苹果点点乐》吧！
+点饼干点腻了吧？尝试一下《苹果点点乐（Apple Clicker）》吧！使用Python的tkinter制作一个类似的放置类游戏《苹果点点乐（Apple Clicker）》！
 
 ```
 游戏名：苹果点点乐
@@ -22,7 +22,9 @@ Cookie Clicker（饼干点点乐）是2013年Orteil发布的一款网页放置�
 正如Orteil所称，这是一个“无尽”的游戏。游戏的重点是通过点击一个巨大的饼干来获得饼干，直到你有足够的饼干来购买升级。看似无穷无尽的游戏性使它成为一款可以无限持续的游戏，或者至少持续到你的设备无法再运行为止。
 
 · Orteil免费开放了Cookie Clicker网页版！`https://orteil.dashnet.org/cookieclicker/`
+
 · Cookie Clicker的正式版可在Steam上购买：`https://store.steampowered.com/app/1454400/Cookie_Clicker/`
+
 · Cookie Clicker Wiki：`https://cookieclicker.fandom.com/wiki/Cookie_Clicker_Wiki`
 
 ## 开发进展
