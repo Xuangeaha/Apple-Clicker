@@ -5,8 +5,6 @@ import pygame
 import threading
 import cryptocode
 import tkinter as tk
-from tkinter import *
-from tkinter import ttk
 from ttkbootstrap import Style
 from win10toast import ToastNotifier
 
@@ -328,7 +326,7 @@ def achievement_logic():
         information = "恭喜你 获得成就 ["+title+"]："+rule+"！"
         achievement_get_sound()
         toast_title = "获得成就 ["+title+"]"
-        achievements_information_text.insert(END, toast_title + ": " + rule + "\n")
+        achievements_information_text.insert(tk.END, toast_title + ": " + rule + "\n")
         achievement.show_toast(title=toast_title, msg=rule,
                                icon_path="./assets/app16x16.ico", duration=5)
 
@@ -1944,7 +1942,7 @@ level_progress_label_left = tk.Entry(frame_bottom, width=7, borderwidth=1, justi
 level_progress_label_left.grid(row=1, column=0)
 level_progress_label_left.after(300, level_progress_label_left_update)
 
-level_progress_bar = ttk.Progressbar(frame_bottom, length=300, orient='horizontal', mode='determinate')
+level_progress_bar = tk.ttk.Progressbar(frame_bottom, length=300, orient='horizontal', mode='determinate')
 level_progress_bar.grid(row=1, column=1)
 level_progress_bar.after(300, level_progress_bar_update)
 
@@ -1968,7 +1966,7 @@ def achievement_progress_entry_update():
     achievement_progress_entry.insert(0, str(achievement_get_num) + "/" + str(achevement_num_all))
     achievement_progress_entry.after(500, achievement_progress_entry_update)
 
-achievement_progress_bar = ttk.Progressbar(frame_button, length=300,maximum=achevement_num_all, orient='horizontal', mode='determinate')
+achievement_progress_bar = tk.ttk.Progressbar(frame_button, length=300,maximum=achevement_num_all, orient='horizontal', mode='determinate')
 achievement_progress_bar.grid(row=15, column=6)
 achievement_progress_bar.after(500, achievement_progress_bar_update)
 
@@ -2016,10 +2014,10 @@ bottom_button_about = tk.Button(frame_bottom_left,
                                 command=root_close)
 bottom_button_about.grid(row=1, column=6, sticky='w')
 
-menubar = Menu(root, bg="red")
+menubar = tk.Menu(root, bg="red")
 root.config(menu=menubar)
 
-operationMenu = Menu(menubar,tearoff=0)
+operationMenu = tk.Menu(menubar,tearoff=0)
 menubar.add_cascade(label="关于..", menu=operationMenu)
 operationMenu.add_command(label="关于", command=window_about)
 
@@ -2104,11 +2102,9 @@ def window_settings():
 operationMenu.add_command(label="设置", command=window_settings)
 operationMenu.add_command(label="传送门", command=window_cheat)
 
-exitMenu = Menu(menubar, tearoff=0)
+exitMenu = tk.Menu(menubar, tearoff=0)
 menubar.add_cascade(label="退出..", menu=exitMenu)
 exitMenu.add_command(label="退出", command=root_close)
-
-mainloop()
 
 root.mainloop()
 
