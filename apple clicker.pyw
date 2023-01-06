@@ -136,6 +136,43 @@ achievement_47_on: int = 0
 achievement_48_on: int = 0
 achievement_49_on: int = 0
 achievement_50_on: int = 0
+achievement_51_on: int = 0
+achievement_52_on: int = 0
+achievement_53_on: int = 0
+achievement_54_on: int = 0
+achievement_55_on: int = 0
+achievement_56_on: int = 0
+achievement_57_on: int = 0
+achievement_58_on: int = 0
+achievement_59_on: int = 0
+achievement_60_on: int = 0
+achievement_60_on: int = 0
+achievement_61_on: int = 0
+achievement_62_on: int = 0
+achievement_63_on: int = 0
+achievement_64_on: int = 0
+achievement_65_on: int = 0
+achievement_66_on: int = 0
+achievement_67_on: int = 0
+achievement_68_on: int = 0
+achievement_69_on: int = 0
+achievement_70_on: int = 0
+achievement_71_on: int = 0
+achievement_72_on: int = 0
+achievement_73_on: int = 0
+achievement_74_on: int = 0
+achievement_75_on: int = 0
+achievement_76_on: int = 0
+achievement_77_on: int = 0
+achievement_78_on: int = 0
+achievement_79_on: int = 0
+achievement_80_on: int = 0
+achievement_81_on: int = 0
+achievement_82_on: int = 0
+achievement_83_on: int = 0
+achievement_84_on: int = 0
+achievement_85_on: int = 0
+
 achievement_1_get: int = 0
 achievement_2_get: int = 0
 achievement_3_get: int = 0
@@ -176,7 +213,6 @@ achievement_37_get: int = 0
 achievement_38_get: int = 0
 achievement_39_get: int = 0
 achievement_40_get: int = 0
-achievement_40_get: int = 0
 achievement_41_get: int = 0
 achievement_42_get: int = 0
 achievement_43_get: int = 0
@@ -187,6 +223,41 @@ achievement_47_get: int = 0
 achievement_48_get: int = 0
 achievement_49_get: int = 0
 achievement_50_get: int = 0
+achievement_51_get: int = 0
+achievement_52_get: int = 0
+achievement_53_get: int = 0
+achievement_54_get: int = 0
+achievement_55_get: int = 0
+achievement_56_get: int = 0
+achievement_57_get: int = 0
+achievement_58_get: int = 0
+achievement_59_get: int = 0
+achievement_60_get: int = 0
+achievement_61_get: int = 0
+achievement_62_get: int = 0
+achievement_63_get: int = 0
+achievement_64_get: int = 0
+achievement_65_get: int = 0
+achievement_66_get: int = 0
+achievement_67_get: int = 0
+achievement_68_get: int = 0
+achievement_69_get: int = 0
+achievement_70_get: int = 0
+achievement_71_get: int = 0
+achievement_72_get: int = 0
+achievement_73_get: int = 0
+achievement_74_get: int = 0
+achievement_75_get: int = 0
+achievement_76_get: int = 0
+achievement_77_get: int = 0
+achievement_78_get: int = 0
+achievement_79_get: int = 0
+achievement_80_get: int = 0
+achievement_81_get: int = 0
+achievement_82_get: int = 0
+achievement_83_get: int = 0
+achievement_84_get: int = 0
+achievement_85_get: int = 0
 
 information: str = "欢迎来到 苹果点点乐©!  作者/版权: 轩哥啊哈OvO"  # 初始信息
 
@@ -314,6 +385,46 @@ def achievement_logic():
     global achievement_43_get
     global achievement_44_get
     global achievement_45_get
+    global achievement_46_get
+    global achievement_47_get
+    global achievement_48_get
+    global achievement_49_get
+    global achievement_50_get
+    global achievement_51_get
+    global achievement_52_get
+    global achievement_53_get
+    global achievement_54_get
+    global achievement_55_get
+    global achievement_56_get
+    global achievement_57_get
+    global achievement_58_get
+    global achievement_59_get
+    global achievement_60_get
+    global achievement_61_get
+    global achievement_62_get
+    global achievement_63_get
+    global achievement_64_get
+    global achievement_65_get
+    global achievement_66_get
+    global achievement_67_get
+    global achievement_68_get
+    global achievement_69_get
+    global achievement_70_get
+    global achievement_71_get
+    global achievement_72_get
+    global achievement_73_get
+    global achievement_74_get
+    global achievement_75_get
+    global achievement_76_get
+    global achievement_77_get
+    global achievement_78_get
+    global achievement_79_get
+    global achievement_80_get
+    global achievement_81_get
+    global achievement_82_get
+    global achievement_83_get
+    global achievement_84_get
+    global achievement_85_get
     
     achievement = ToastNotifier()
 
@@ -519,7 +630,175 @@ def achievement_logic():
             achievement_45_on = 1
         else:
             achievement_45_on = 0
-            
+
+        if country_amount >= 1 and achievement_46_get == 0:
+            achievement_46_on = 1
+        else:
+            achievement_46_on = 0
+        if country_amount >= 5 and achievement_47_get == 0:
+            achievement_47_on = 1
+        else:
+            achievement_47_on = 0
+        if country_amount >= 10 and achievement_48_get == 0:
+            achievement_48_on = 1
+        else:
+            achievement_48_on = 0
+        if country_amount >= 50 and achievement_49_get == 0:
+            achievement_49_on = 1
+        else:
+            achievement_49_on = 0
+        if country_amount >= 100 and achievement_50_get == 0:
+            achievement_50_on = 1
+        else:
+            achievement_50_on = 0
+
+        if planet_amount >= 1 and achievement_51_get == 0:
+            achievement_51_on = 1
+        else:
+            achievement_51_on = 0
+        if planet_amount >= 5 and achievement_52_get == 0:
+            achievement_52_on = 1
+        else:
+            achievement_52_on = 0
+        if planet_amount >= 10 and achievement_53_get == 0:
+            achievement_53_on = 1
+        else:
+            achievement_53_on = 0
+        if planet_amount >= 50 and achievement_54_get == 0:
+            achievement_54_on = 1
+        else:
+            achievement_54_on = 0
+        if planet_amount >= 100 and achievement_55_get == 0:
+            achievement_55_on = 1
+        else:
+            achievement_55_on = 0
+
+        if wizardtower_amount >= 1 and achievement_56_get == 0:
+            achievement_56_on = 1
+        else:
+            achievement_56_on = 0
+        if wizardtower_amount >= 5 and achievement_57_get == 0:
+            achievement_57_on = 1
+        else:
+            achievement_57_on = 0
+        if wizardtower_amount >= 10 and achievement_58_get == 0:
+            achievement_58_on = 1
+        else:
+            achievement_58_on = 0
+        if wizardtower_amount >= 50 and achievement_59_get == 0:
+            achievement_59_on = 1
+        else:
+            achievement_59_on = 0
+        if wizardtower_amount >= 100 and achievement_50_get == 0:
+            achievement_60_on = 1
+        else:
+            achievement_60_on = 0        
+
+        if plane_amount >= 1 and achievement_61_get == 0:
+            achievement_61_on = 1
+        else:
+            achievement_61_on = 0
+        if plane_amount >= 5 and achievement_62_get == 0:
+            achievement_62_on = 1
+        else:
+            achievement_62_on = 0
+        if plane_amount >= 10 and achievement_63_get == 0:
+            achievement_63_on = 1
+        else:
+            achievement_63_on = 0
+        if plane_amount >= 50 and achievement_66_get == 0:
+            achievement_66_on = 1
+        else:
+            achievement_66_on = 0
+        if plane_amount >= 100 and achievement_65_get == 0:
+            achievement_65_on = 1
+        else:
+            achievement_65_on = 0
+
+        if hole_amount >= 1 and achievement_66_get == 0:
+            achievement_66_on = 1
+        else:
+            achievement_66_on = 0
+        if hole_amount >= 5 and achievement_67_get == 0:
+            achievement_67_on = 1
+        else:
+            achievement_67_on = 0
+        if hole_amount >= 10 and achievement_68_get == 0:
+            achievement_68_on = 1
+        else:
+            achievement_68_on = 0
+        if hole_amount >= 50 and achievement_69_get == 0:
+            achievement_69_on = 1
+        else:
+            achievement_69_on = 0
+        if hole_amount >= 100 and achievement_70_get == 0:
+            achievement_70_on = 1
+        else:
+            achievement_70_on = 0
+
+        if timemachine_amount >= 1 and achievement_71_get == 0:
+            achievement_71_on = 1
+        else:
+            achievement_71_on = 0
+        if timemachine_amount >= 5 and achievement_72_get == 0:
+            achievement_72_on = 1
+        else:
+            achievement_72_on = 0
+        if timemachine_amount >= 10 and achievement_73_get == 0:
+            achievement_73_on = 1
+        else:
+            achievement_73_on = 0
+        if timemachine_amount >= 50 and achievement_74_get == 0:
+            achievement_74_on = 1
+        else:
+            achievement_74_on = 0
+        if timemachine_amount >= 100 and achievement_75_get == 0:
+            achievement_75_on = 1
+        else:
+            achievement_75_on = 0
+
+        if glass_amount >= 1 and achievement_76_get == 0:
+            achievement_76_on = 1
+        else:
+            achievement_76_on = 0
+        if glass_amount >= 5 and achievement_77_get == 0:
+            achievement_77_on = 1
+        else:
+            achievement_77_on = 0
+        if glass_amount >= 10 and achievement_78_get == 0:
+            achievement_78_on = 1
+        else:
+            achievement_78_on = 0
+        if glass_amount >= 50 and achievement_79_get == 0:
+            achievement_79_on = 1
+        else:
+            achievement_79_on = 0
+        if glass_amount >= 100 and achievement_80_get == 0:
+            achievement_80_on = 1
+        else:
+            achievement_80_on = 0
+
+        if js_amount >= 1 and achievement_81_get == 0:
+            achievement_81_on = 1
+        else:
+            achievement_81_on = 0
+        if js_amount >= 5 and achievement_82_get == 0:
+            achievement_82_on = 1
+        else:
+            achievement_82_on = 0
+        if js_amount >= 10 and achievement_83_get == 0:
+            achievement_83_on = 1
+        else:
+            achievement_83_on = 0
+        if js_amount >= 50 and achievement_84_get == 0:
+            achievement_84_on = 1
+        else:
+            achievement_84_on = 0
+        if js_amount >= 100 and achievement_85_get == 0:
+            achievement_85_on = 1
+        else:
+            achievement_85_on = 0
+
         if achievement_1_on == 1: achievement_1_get = 1; achievement_get("春天的苏醒","收获 1 个苹果")
         if achievement_2_on == 1: achievement_2_get = 1; achievement_get("苹果的气息", "收获 100 个苹果")
         if achievement_3_on == 1: achievement_3_get = 1; achievement_get("富足果园", "收获 1000 个苹果")
