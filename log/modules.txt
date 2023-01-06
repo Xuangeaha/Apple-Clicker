@@ -1,9 +1,10 @@
 sys
 time
 random
-pygame
 tkinter
 threading
+
+pygame
 win10toast
 cryptocode
 ttkbootstrap
