@@ -1036,130 +1036,99 @@ def apple_per_second_entry_update():
     apple_per_second_entry.after(20, apple_per_second_entry_update)
 
 def entry_information_number_upgrade():  # 信息网格显示运算
-    global sponsor_amount
+    global sponsor_amount, seed_amount, basket_amount, tree_amount, garden_amount
+    global town_amount, country_amount, planet_amount, wizardtower_amount, plane_amount
+    global hole_amount, timemachine_amount, glass_amount, js_amount
     entry_information_number_23.delete(0, "end")
     entry_information_number_23.insert(0, str(sponsor_amount))
-    global seed_amount
     entry_information_number_33.delete(0, "end")
     entry_information_number_33.insert(0, str(seed_amount))
-    global basket_amount
     entry_information_number_43.delete(0, "end")
     entry_information_number_43.insert(0, str(basket_amount))
-    global tree_amount
     entry_information_number_53.delete(0, "end")
     entry_information_number_53.insert(0, str(tree_amount))
-    global garden_amount
     entry_information_number_63.delete(0, "end")
     entry_information_number_63.insert(0, str(garden_amount))
-    global town_amount
     entry_information_number_73.delete(0, "end")
     entry_information_number_73.insert(0, str(town_amount))
-    global country_amount
     entry_information_number_83.delete(0, "end")
     entry_information_number_83.insert(0, str(country_amount))
-    global planet_amount
     entry_information_number_93.delete(0, "end")
     entry_information_number_93.insert(0, str(planet_amount))
-    global wizardtower_amount
     entry_information_number_103.delete(0, "end")
     entry_information_number_103.insert(0, str(wizardtower_amount))
-    global plane_amount
     entry_information_number_113.delete(0, "end")
     entry_information_number_113.insert(0, str(plane_amount))
-    global hole_amount
     entry_information_number_123.delete(0, "end")
     entry_information_number_123.insert(0, str(hole_amount))
-    global timemachine_amount
     entry_information_number_133.delete(0, "end")
     entry_information_number_133.insert(0, str(timemachine_amount))
-    global glass_amount
     entry_information_number_143.delete(0, "end")
     entry_information_number_143.insert(0, str(glass_amount))
-    global js_amount
     entry_information_number_153.delete(0, "end")
     entry_information_number_153.insert(0, str(js_amount))
-    global price_sponsor
+
+    global price_sponsor, price_seed, price_basket, price_tree, price_garden
+    global price_town, price_country, price_planet, price_wizardtower, price_plane
+    global price_hole, price_timemachine, price_glass, price_js
     entry_information_number_24.delete(0, "end")
     entry_information_number_24.insert(0, str(price_sponsor))
-    global price_seed
     entry_information_number_34.delete(0, "end")
     entry_information_number_34.insert(0, str(price_seed))
-    global price_basket
     entry_information_number_44.delete(0, "end")
     entry_information_number_44.insert(0, str(price_basket))
-    global price_tree
     entry_information_number_54.delete(0, "end")
     entry_information_number_54.insert(0, str(price_tree))
-    global price_garden
     entry_information_number_64.delete(0, "end")
     entry_information_number_64.insert(0, str(price_garden))
-    global price_town
     entry_information_number_74.delete(0, "end")
     entry_information_number_74.insert(0, str(price_town))
-    global price_country
     entry_information_number_84.delete(0, "end")
     entry_information_number_84.insert(0, str(price_country))
-    global price_planet
     entry_information_number_94.delete(0, "end")
     entry_information_number_94.insert(0, str(price_planet))
-    global price_wizardtower
     entry_information_number_104.delete(0, "end")
     entry_information_number_104.insert(0, str(price_wizardtower))
-    global price_plane
     entry_information_number_114.delete(0, "end")
     entry_information_number_114.insert(0, str(price_plane))
-    global price_hole
     entry_information_number_124.delete(0, "end")
     entry_information_number_124.insert(0, str(price_hole))
-    global price_timemachine
     entry_information_number_134.delete(0, "end")
     entry_information_number_134.insert(0, str(price_timemachine))
-    global price_glass
     entry_information_number_144.delete(0, "end")
     entry_information_number_144.insert(0, str(price_glass))
-    global price_js
     entry_information_number_154.delete(0, "end")
     entry_information_number_154.insert(0, str(price_js))
-    global value_sponsor
+
+    global value_sponsor, value_seed, value_basket, value_tree, value_garden
+    global value_hole, value_timemachine, value_glass, value_js
+    global value_town, value_country, value_planet, value_wizardtower, value_plane
     entry_information_number_30.delete(0, "end")
     entry_information_number_30.insert(0, ("+" + str(value_sponsor * sponsor_amount)) + " / s")
-    global value_seed
     entry_information_number_35.delete(0, "end")
     entry_information_number_35.insert(0, ("+" + str(value_seed * seed_amount)) + " / s")
-    global value_basket
     entry_information_number_45.delete(0, "end")
     entry_information_number_45.insert(0, ("+" + str(value_basket * basket_amount)) + " / s")
-    global value_tree
     entry_information_number_55.delete(0, "end")
     entry_information_number_55.insert(0, ("+" + str(value_tree * tree_amount)) + " / s")
-    global value_garden
     entry_information_number_65.delete(0, "end")
     entry_information_number_65.insert(0, ("+" + str(value_garden * garden_amount)) + " / s")
-    global value_town
     entry_information_number_75.delete(0, "end")
     entry_information_number_75.insert(0, ("+" + str(value_town * town_amount)) + " / s")
-    global value_country
     entry_information_number_85.delete(0, "end")
     entry_information_number_85.insert(0, ("+" + str(value_country * country_amount)) + " / s")
-    global value_planet
     entry_information_number_95.delete(0, "end")
     entry_information_number_95.insert(0, ("+" + str(value_planet * planet_amount)) + " / s")
-    global value_wizardtower
     entry_information_number_105.delete(0, "end")
     entry_information_number_105.insert(0, ("+" + str(value_wizardtower * wizardtower_amount)) + " / s")
-    global value_plane
     entry_information_number_115.delete(0, "end")
     entry_information_number_115.insert(0, ("+" + str(value_plane * plane_amount)) + " / s")
-    global value_hole
     entry_information_number_130.delete(0, "end")
     entry_information_number_130.insert(0, ("+" + str(value_hole * hole_amount)) + " / s")
-    global value_timemachine
     entry_information_number_135.delete(0, "end")
     entry_information_number_135.insert(0, ("+" + str(value_timemachine * timemachine_amount)) + " / s")
-    global value_glass
     entry_information_number_145.delete(0, "end")
     entry_information_number_145.insert(0, ("+" + str(value_glass * glass_amount)) + " / s")
-    global value_js
     entry_information_number_155.delete(0, "end")
     entry_information_number_155.insert(0, ("+" + str(value_js * js_amount)) + " / s")
     entry_information_number_155.after(300, entry_information_number_upgrade)
@@ -1390,9 +1359,7 @@ def statistics_text_upgrade():  # 统计信息显示运算
     statistics_text.after(300, statistics_text_upgrade)
 
 def upgrade_button_clicked():  # 升级运算
-    global apple_amount
-    global information
-    global upgrade_button_clicked_time
+    global apple_amount, information, upgrade_button_clicked_time
     if (apple_amount - upgrade_price) < 0:
         information = "没有足够的苹果。你需要至少 " + str(int(upgrade_price)) + " 个苹果以升级。"
     else:
@@ -1579,130 +1546,91 @@ button_click.pack()
 
 information_label_column_1 = tk.Label(frame_button, text="建筑")  # 顶部
 information_label_column_1.grid(row=1, column=1, pady=2)
-
 information_label_column_2 = tk.Label(frame_button, text="建筑简介")
 information_label_column_2.grid(row=1, column=2, pady=2)
-
 information_label_column_3 = tk.Label(frame_button, text="数量")
 information_label_column_3.grid(row=1, column=3, pady=2)
-
 information_label_column_4 = tk.Label(frame_button, text="价格")
 information_label_column_4.grid(row=1, column=4, pady=2)
-
 information_label_column_5 = tk.Label(frame_button, text="速度")
 information_label_column_5.grid(row=1, column=5, pady=2)
-
 information_label_column_6 = tk.Label(frame_button, text="成就栏")
 information_label_column_6.grid(row=1, column=6, pady=2,columnspan=2)
 
 entry_information_number_23 = tk.Entry(frame_button, width=5)  # 信息网格
 entry_information_number_23.grid(row=2, column=3)
-
 entry_information_number_33 = tk.Entry(frame_button, width=5)
 entry_information_number_33.grid(row=3, column=3)
-
 entry_information_number_43 = tk.Entry(frame_button, width=5)
 entry_information_number_43.grid(row=4, column=3)
-
 entry_information_number_53 = tk.Entry(frame_button, width=5)
 entry_information_number_53.grid(row=5, column=3)
-
 entry_information_number_63 = tk.Entry(frame_button, width=5)
 entry_information_number_63.grid(row=6, column=3)
-
 entry_information_number_73 = tk.Entry(frame_button, width=5)
 entry_information_number_73.grid(row=7, column=3)
-
 entry_information_number_83 = tk.Entry(frame_button, width=5)
 entry_information_number_83.grid(row=8, column=3)
-
 entry_information_number_93 = tk.Entry(frame_button, width=5)
 entry_information_number_93.grid(row=9, column=3)
-
 entry_information_number_103 = tk.Entry(frame_button, width=5)
 entry_information_number_103.grid(row=10, column=3)
-
 entry_information_number_113 = tk.Entry(frame_button, width=5)
 entry_information_number_113.grid(row=11, column=3)
-
 entry_information_number_123 = tk.Entry(frame_button, width=5)
 entry_information_number_123.grid(row=12, column=3)
-
 entry_information_number_133 = tk.Entry(frame_button, width=5)
 entry_information_number_133.grid(row=13, column=3)
-
 entry_information_number_143 = tk.Entry(frame_button, width=5)
 entry_information_number_143.grid(row=14, column=3)
-
 entry_information_number_153 = tk.Entry(frame_button, width=5)
 entry_information_number_153.grid(row=15, column=3)
 
 entry_information_number_24 = tk.Entry(frame_button, width=11)
 entry_information_number_24.grid(row=2, column=4)
-
 entry_information_number_34 = tk.Entry(frame_button, width=11)
 entry_information_number_34.grid(row=3, column=4)
-
 entry_information_number_44 = tk.Entry(frame_button, width=11)
 entry_information_number_44.grid(row=4, column=4)
-
 entry_information_number_54 = tk.Entry(frame_button, width=11)
 entry_information_number_54.grid(row=5, column=4)
-
 entry_information_number_64 = tk.Entry(frame_button, width=11)
 entry_information_number_64.grid(row=6, column=4)
-
 entry_information_number_74 = tk.Entry(frame_button, width=11)
 entry_information_number_74.grid(row=7, column=4)
-
 entry_information_number_84 = tk.Entry(frame_button, width=11)
 entry_information_number_84.grid(row=8, column=4)
-
 entry_information_number_94 = tk.Entry(frame_button, width=11)
 entry_information_number_94.grid(row=9, column=4)
-
 entry_information_number_104 = tk.Entry(frame_button, width=11)
 entry_information_number_104.grid(row=10, column=4)
-
 entry_information_number_114 = tk.Entry(frame_button, width=11)
 entry_information_number_114.grid(row=11, column=4)
-
 entry_information_number_124 = tk.Entry(frame_button, width=11)
 entry_information_number_124.grid(row=12, column=4)
-
 entry_information_number_134 = tk.Entry(frame_button, width=11)
 entry_information_number_134.grid(row=13, column=4)
-
 entry_information_number_144 = tk.Entry(frame_button, width=11)
 entry_information_number_144.grid(row=14, column=4)
-
 entry_information_number_154 = tk.Entry(frame_button, width=11)
 entry_information_number_154.grid(row=15, column=4)
 
 entry_information_number_30 = tk.Entry(frame_button, width=12)
 entry_information_number_30.grid(row=2, column=5)
-
 entry_information_number_35 = tk.Entry(frame_button, width=12)
 entry_information_number_35.grid(row=3, column=5)
-
 entry_information_number_45 = tk.Entry(frame_button, width=12)
 entry_information_number_45.grid(row=4, column=5)
-
 entry_information_number_55 = tk.Entry(frame_button, width=12)
 entry_information_number_55.grid(row=5, column=5)
-
 entry_information_number_65 = tk.Entry(frame_button, width=12)
 entry_information_number_65.grid(row=6, column=5)
-
 entry_information_number_75 = tk.Entry(frame_button, width=12)
 entry_information_number_75.grid(row=7, column=5)
-
 entry_information_number_85 = tk.Entry(frame_button, width=12)
 entry_information_number_85.grid(row=8, column=5)
-
 entry_information_number_95 = tk.Entry(frame_button, width=12)
 entry_information_number_95.grid(row=9, column=5)
-
 entry_information_number_105 = tk.Entry(frame_button, width=12)
 entry_information_number_105.grid(row=10, column=5)
 entry_information_number_115 = tk.Entry(frame_button, width=12)
@@ -1769,7 +1697,7 @@ level_progress_label_right.after(300, level_progress_label_right_update)
 achievements_information_text = tk.Text(frame_button, width=45, height=31)  # 成就框
 achievements_information_text.grid(row=2, column=6, rowspan=13,columnspan=2)
 
-achevement_num_all = 25
+achevement_num_all = 85
 
 def achievement_progress_bar_update():
     achievement_get_num = achievement_1_get + achievement_2_get + achievement_3_get + achievement_4_get + achievement_5_get + achievement_6_get + achievement_7_get + achievement_8_get + achievement_9_get + achievement_10_get + achievement_11_get + achievement_12_get + achievement_13_get + achievement_14_get + achievement_15_get + achievement_16_get + achievement_17_get + achievement_18_get + achievement_19_get + achievement_20_get + achievement_21_get + achievement_22_get + achievement_23_get + achievement_24_get + achievement_25_get + achievement_26_get + achievement_27_get + achievement_28_get + achievement_29_get + achievement_30_get + achievement_31_get + achievement_32_get + achievement_33_get + achievement_34_get + achievement_35_get
