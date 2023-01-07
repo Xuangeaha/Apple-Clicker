@@ -340,91 +340,23 @@ def progress_bar_logic():
 
 def achievement_logic():
     global information
-    global achievement_1_get
-    global achievement_2_get
-    global achievement_3_get
-    global achievement_4_get
-    global achievement_5_get
-    global achievement_6_get
-    global achievement_7_get
-    global achievement_8_get
-    global achievement_9_get
-    global achievement_10_get
-    global achievement_11_get
-    global achievement_12_get
-    global achievement_13_get
-    global achievement_14_get
-    global achievement_15_get
-    global achievement_16_get
-    global achievement_17_get
-    global achievement_18_get
-    global achievement_19_get
-    global achievement_20_get
-    global achievement_21_get
-    global achievement_22_get
-    global achievement_23_get
-    global achievement_24_get
-    global achievement_25_get
-    global achievement_26_get
-    global achievement_27_get
-    global achievement_28_get
-    global achievement_29_get
-    global achievement_30_get
-    global achievement_31_get
-    global achievement_32_get
-    global achievement_33_get
-    global achievement_34_get
-    global achievement_35_get
-    global achievement_36_get
-    global achievement_37_get
-    global achievement_38_get
-    global achievement_39_get
-    global achievement_40_get
-    global achievement_41_get
-    global achievement_42_get
-    global achievement_43_get
-    global achievement_44_get
-    global achievement_45_get
-    global achievement_46_get
-    global achievement_47_get
-    global achievement_48_get
-    global achievement_49_get
-    global achievement_50_get
-    global achievement_51_get
-    global achievement_52_get
-    global achievement_53_get
-    global achievement_54_get
-    global achievement_55_get
-    global achievement_56_get
-    global achievement_57_get
-    global achievement_58_get
-    global achievement_59_get
-    global achievement_60_get
-    global achievement_61_get
-    global achievement_62_get
-    global achievement_63_get
-    global achievement_64_get
-    global achievement_65_get
-    global achievement_66_get
-    global achievement_67_get
-    global achievement_68_get
-    global achievement_69_get
-    global achievement_70_get
-    global achievement_71_get
-    global achievement_72_get
-    global achievement_73_get
-    global achievement_74_get
-    global achievement_75_get
-    global achievement_76_get
-    global achievement_77_get
-    global achievement_78_get
-    global achievement_79_get
-    global achievement_80_get
-    global achievement_81_get
-    global achievement_82_get
-    global achievement_83_get
-    global achievement_84_get
-    global achievement_85_get
+    global achievement_1_get, achievement_2_get, achievement_3_get, achievement_4_get, achievement_5_get
+    global achievement_6_get, achievement_7_get, achievement_8_get, achievement_9_get, achievement_10_get
+    global achievement_11_get, achievement_12_get, achievement_13_get, achievement_14_get, achievement_15_get
+    global achievement_16_get, achievement_17_get, achievement_18_get, achievement_19_get, achievement_20_get
+    global achievement_21_get, achievement_22_get, achievement_23_get, achievement_24_get, achievement_25_get
+    global achievement_26_get, achievement_27_get, achievement_28_get, achievement_29_get, achievement_30_get
+    global achievement_31_get, achievement_32_get, achievement_33_get, achievement_34_get, achievement_35_get
+    global achievement_36_get, achievement_37_get, achievement_38_get, achievement_39_get, achievement_40_get
+    global achievement_41_get, achievement_42_get, achievement_43_get, achievement_44_get, achievement_45_get
+    global achievement_46_get, achievement_47_get, achievement_48_get, achievement_49_get, achievement_50_get
+    global achievement_51_get, achievement_52_get, achievement_53_get, achievement_54_get, achievement_55_get
+    global achievement_56_get, achievement_57_get, achievement_58_get, achievement_59_get, achievement_60_get
+    global achievement_61_get, achievement_62_get, achievement_63_get, achievement_64_get, achievement_65_get
+    global achievement_66_get, achievement_67_get, achievement_68_get, achievement_69_get, achievement_70_get
+    global achievement_71_get, achievement_72_get, achievement_73_get, achievement_74_get, achievement_75_get
+    global achievement_76_get, achievement_77_get, achievement_78_get, achievement_79_get, achievement_80_get
+    global achievement_81_get, achievement_82_get, achievement_83_get, achievement_84_get, achievement_85_get
     
     achievement = ToastNotifier()
 
@@ -902,11 +834,7 @@ def unsuccessful_bought_sound():
     #pygame.mixer.music.play(start=0.0)
 
 def sponsor_button_clicked():  # 建筑购买运算
-    global apple_amount
-    global price_sponsor
-    global sponsor_amount
-    global information
-    global button_clicked_amount_2
+    global apple_amount, price_sponsor, sponsor_amount, information, button_clicked_amount_2
     if (apple_amount - price_sponsor) < 0:
         information = "没有足够的苹果。你需要至少 " + str(price_sponsor) + " 个苹果 以购买 鼠标指针。"
         unsuccessful_bought_sound()
@@ -919,11 +847,7 @@ def sponsor_button_clicked():  # 建筑购买运算
         sponsor_amount += 1
 
 def seed_button_clicked():
-    global apple_amount
-    global price_seed
-    global seed_amount
-    global information
-    global button_clicked_amount_3
+    global apple_amount, price_seed, seed_amount, information, button_clicked_amount_3
     if (apple_amount - price_seed) < 0:
         information = "没有足够的苹果。你需要至少 " + str(price_seed) + " 个苹果 以购买 果篮。"
         unsuccessful_bought_sound()
@@ -936,11 +860,7 @@ def seed_button_clicked():
         seed_amount += 1
 
 def basket_button_clicked():
-    global apple_amount
-    global price_basket
-    global basket_amount
-    global information
-    global button_clicked_amount_4
+    global apple_amount, price_basket, basket_amount, information, button_clicked_amount_4
     if (apple_amount - price_basket) < 0:
         information = "没有足够的苹果。你需要至少 " + str(price_basket) + " 个苹果 以购买 老爷爷。"
         unsuccessful_bought_sound()
@@ -953,11 +873,7 @@ def basket_button_clicked():
         basket_amount += 1
 
 def tree_button_clicked():
-    global apple_amount
-    global price_tree
-    global tree_amount
-    global information
-    global button_clicked_amount_5
+    global apple_amount, price_tree, tree_amount, information, button_clicked_amount_5
     if (apple_amount - price_tree) < 0:
         information = "没有足够的苹果。你需要至少 " + str(price_tree) + " 个苹果 以购买 苹果树。"
         unsuccessful_bought_sound()
@@ -970,11 +886,7 @@ def tree_button_clicked():
         tree_amount += 1
 
 def garden_button_clicked():
-    global apple_amount
-    global price_garden
-    global garden_amount
-    global information
-    global button_clicked_amount_6
+    global apple_amount, price_garden, garden_amount, information, button_clicked_amount_6
     if (apple_amount - price_garden) < 0:
         information = "没有足够的苹果。你需要至少 " + str(price_garden) + " 个苹果 以购买 果园。"
         unsuccessful_bought_sound()
@@ -987,11 +899,7 @@ def garden_button_clicked():
         garden_amount += 1
 
 def town_button_clicked():
-    global apple_amount
-    global price_town
-    global town_amount
-    global information
-    global button_clicked_amount_7
+    global apple_amount, price_town, town_amount, information, button_clicked_amount_7
     if (apple_amount - price_town) < 0:
         information = "没有足够的苹果。你需要至少 " + str(price_town) + " 个苹果 以购买 水果镇。"
         unsuccessful_bought_sound()
@@ -1004,11 +912,7 @@ def town_button_clicked():
         town_amount += 1
 
 def country_button_clicked():
-    global apple_amount
-    global price_country
-    global country_amount
-    global information
-    global button_clicked_amount_8
+    global apple_amount, price_country, country_amount, information, button_clicked_amount_8
     if (apple_amount - price_country) < 0:
         information = "没有足够的苹果。你需要至少 " + str(price_country) + " 个苹果 以购买 苹果工厂。"
         unsuccessful_bought_sound()
@@ -1021,11 +925,7 @@ def country_button_clicked():
         country_amount += 1
 
 def planet_button_clicked():
-    global apple_amount
-    global price_planet
-    global planet_amount
-    global information
-    global button_clicked_amount_9
+    global apple_amount, price_planet, planet_amount, information, button_clicked_amount_9
     if (apple_amount - price_planet) < 0:
         information = "没有足够的苹果。你需要至少 " + str(price_planet) + " 个苹果 以购买 水果银行。"
         unsuccessful_bought_sound()
@@ -1038,11 +938,7 @@ def planet_button_clicked():
         planet_amount += 1
 
 def wizardtower_button_clicked():
-    global apple_amount
-    global price_wizardtower
-    global wizardtower_amount
-    global information
-    global button_clicked_amount_10
+    global apple_amount, price_wizardtower, wizardtower_amount, information, button_clicked_amount_10
     if (apple_amount - price_wizardtower) < 0:
         information = "没有足够的苹果。你需要至少 " + str(price_wizardtower) + " 个苹果 以购买 魔法巫师塔。"
         unsuccessful_bought_sound()
@@ -1055,11 +951,7 @@ def wizardtower_button_clicked():
         wizardtower_amount += 1
 
 def plane_button_clicked():
-    global apple_amount
-    global price_plane
-    global plane_amount
-    global information
-    global button_clicked_amount_11
+    global apple_amount, price_plane, plane_amount, information, button_clicked_amount_11
     if (apple_amount - price_plane) < 0:
         information = "没有足够的苹果。你需要至少 " + str(price_plane) + " 个苹果 以购买 宇宙飞船。"
         unsuccessful_bought_sound()
@@ -1072,11 +964,7 @@ def plane_button_clicked():
         plane_amount += 1
 
 def hole_button_clicked():
-    global apple_amount
-    global price_hole
-    global hole_amount
-    global information
-    global button_clicked_amount_12
+    global apple_amount, price_hole, hole_amount, information, button_clicked_amount_12
     if (apple_amount - price_hole) < 0:
         information = "没有足够的苹果。你需要至少 " + str(price_hole) + " 个苹果 以购买 虫洞。"
         unsuccessful_bought_sound()
@@ -1089,11 +977,7 @@ def hole_button_clicked():
         hole_amount += 1
 
 def timemachine_button_clicked():
-    global apple_amount
-    global price_timemachine
-    global timemachine_amount
-    global information
-    global button_clicked_amount_13
+    global apple_amount, price_timemachine, timemachine_amount, information, button_clicked_amount_13
     if (apple_amount - price_timemachine) < 0:
         information = "没有足够的苹果。你需要至少 " + str(price_timemachine) + " 个苹果 以购买 时光机。"
         unsuccessful_bought_sound()
@@ -1106,11 +990,7 @@ def timemachine_button_clicked():
         timemachine_amount += 1
 
 def glass_button_clicked():
-    global apple_amount
-    global price_glass
-    global glass_amount
-    global information
-    global button_clicked_amount_14
+    global apple_amount, price_glass, glass_amount, information, button_clicked_amount_14
     if (apple_amount - price_glass) < 0:
         information = "没有足够的苹果。你需要至少 " + str(
             price_glass) + " 个苹果 以购买 反物质聚光镜。"
@@ -1124,11 +1004,7 @@ def glass_button_clicked():
         glass_amount += 1
 
 def js_button_clicked():
-    global apple_amount
-    global price_js
-    global js_amount
-    global information
-    global button_clicked_amount_15
+    global apple_amount, price_js, js_amount, information, button_clicked_amount_15
     if (apple_amount - price_js) < 0:
         information = "没有足够的苹果。你需要至少 " + str(
             price_js) + " 个苹果 以购买 JavaScript 控制台。"
@@ -1348,51 +1224,18 @@ def window_upload():  # 存档上传窗口
 
     def upload():
         click_sound()
-        global apple_amount
-        global apple_amount_total
-        global sponsor_amount
-        global seed_amount
-        global basket_amount
-        global tree_amount
-        global garden_amount
-        global town_amount
-        global country_amount
-        global planet_amount
-        global wizardtower_amount
-        global plane_amount
-        global hole_amount
-        global timemachine_amount
-        global glass_amount
-        global js_amount
+        global apple_amount, apple_amount_total
+        global sponsor_amount, seed_amount, basket_amount, tree_amount, garden_amount
+        global town_amount, country_amount, planet_amount, wizardtower_amount, plane_amount
+        global hole_amount, timemachine_amount, glass_amount, js_amount
         global click_time
-        global button_clicked_amount_2
-        global button_clicked_amount_3
-        global button_clicked_amount_4
-        global button_clicked_amount_5
-        global button_clicked_amount_6
-        global button_clicked_amount_7
-        global button_clicked_amount_8
-        global button_clicked_amount_9
-        global button_clicked_amount_10
-        global button_clicked_amount_11
-        global button_clicked_amount_12
-        global button_clicked_amount_13
-        global button_clicked_amount_14
-        global button_clicked_amount_15
-        global price_sponsor
-        global price_seed
-        global price_basket
-        global price_tree
-        global price_garden
-        global price_town
-        global price_country
-        global price_planet
-        global price_wizardtower
-        global price_plane
-        global price_hole
-        global price_timemachine
-        global price_glass
-        global price_js
+        global button_clicked_amount_2, button_clicked_amount_3, button_clicked_amount_4, button_clicked_amount_5
+        global button_clicked_amount_6, button_clicked_amount_7, button_clicked_amount_8, button_clicked_amount_9
+        global button_clicked_amount_10, button_clicked_amount_11, button_clicked_amount_12, button_clicked_amount_13
+        global button_clicked_amount_14, button_clicked_amount_15
+        global price_sponsor, price_seed, price_basket, price_tree, price_garden
+        global price_town, price_country, price_planet, price_wizardtower, price_plane
+        global price_hole, price_timemachine, price_glass, price_js
 
         get_string = save_upload_entry.get()
         str_decoded = cryptocode.decrypt(get_string, "Minecraft is love, minecraft is life, minecraft is everything! ")
@@ -1862,19 +1705,14 @@ entry_information_number_95.grid(row=9, column=5)
 
 entry_information_number_105 = tk.Entry(frame_button, width=12)
 entry_information_number_105.grid(row=10, column=5)
-
 entry_information_number_115 = tk.Entry(frame_button, width=12)
 entry_information_number_115.grid(row=11, column=5)
-
 entry_information_number_130 = tk.Entry(frame_button, width=12)
 entry_information_number_130.grid(row=12, column=5)
-
 entry_information_number_135 = tk.Entry(frame_button, width=12)
 entry_information_number_135.grid(row=13, column=5)
-
 entry_information_number_145 = tk.Entry(frame_button, width=12)
 entry_information_number_145.grid(row=14, column=5)
-
 entry_information_number_155 = tk.Entry(frame_button, width=12)
 entry_information_number_155.grid(row=15, column=5)
 entry_information_number_155.after(300, entry_information_number_upgrade)
@@ -1999,8 +1837,7 @@ def window_cheat():  # 存档下载窗口
 
     def cheat_process():
         click_sound()
-        global apple_amount
-        global apple_amount_total
+        global apple_amount, apple_amount_total
         cheat = cheat_entry.get().split(" ")
 
         if cheat[0] == '/earn':
