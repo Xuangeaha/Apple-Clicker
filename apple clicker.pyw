@@ -782,7 +782,55 @@ def achievement_logic():
         if achievement_43_on == 1: achievement_43_get = 1; achievement_get("三线城镇", "购买 10 个 水果镇")
         if achievement_44_on == 1: achievement_44_get = 1; achievement_get("二线城镇", "购买 50 个 水果镇")
         if achievement_45_on == 1: achievement_45_get = 1; achievement_get("一线城镇", "购买 100 个 水果镇")
-            
+
+        #if achievement_46_on == 1: achievement_46_get = 1; achievement_get("", "购买 1 个 苹果工厂")
+        if achievement_47_on == 1: achievement_47_get = 1; achievement_get("", "购买 5 个 苹果工厂")
+        if achievement_48_on == 1: achievement_48_get = 1; achievement_get("", "购买 10 个 苹果工厂")
+        if achievement_49_on == 1: achievement_49_get = 1; achievement_get("", "购买 50 个 苹果工厂")
+        if achievement_50_on == 1: achievement_50_get = 1; achievement_get("", "购买 100 个 苹果工厂") 
+        
+        if achievement_51_on == 1: achievement_51_get = 1; achievement_get("", "购买 1 个 水果银行")
+        if achievement_52_on == 1: achievement_52_get = 1; achievement_get("", "购买 5 个 水果银行")
+        if achievement_53_on == 1: achievement_53_get = 1; achievement_get("", "购买 10 个 水果银行")
+        if achievement_54_on == 1: achievement_54_get = 1; achievement_get("", "购买 50 个 水果银行")
+        if achievement_55_on == 1: achievement_55_get = 1; achievement_get("", "购买 100 个 水果银行")    
+ 
+        if achievement_56_on == 1: achievement_56_get = 1; achievement_get("", "购买 1 个 魔法巫师塔")
+        if achievement_57_on == 1: achievement_57_get = 1; achievement_get("", "购买 5 个 魔法巫师塔")
+        if achievement_58_on == 1: achievement_58_get = 1; achievement_get("", "购买 10 个 魔法巫师塔")
+        if achievement_59_on == 1: achievement_59_get = 1; achievement_get("", "购买 50 个 魔法巫师塔")
+        if achievement_60_on == 1: achievement_60_get = 1; achievement_get("", "购买 100 个 魔法巫师塔") 
+        
+        if achievement_61_on == 1: achievement_61_get = 1; achievement_get("", "购买 1 个 宇宙飞船")
+        if achievement_62_on == 1: achievement_62_get = 1; achievement_get("", "购买 5 个 宇宙飞船")
+        if achievement_63_on == 1: achievement_63_get = 1; achievement_get("", "购买 10 个 宇宙飞船")
+        if achievement_64_on == 1: achievement_64_get = 1; achievement_get("", "购买 50 个 宇宙飞船")
+        if achievement_65_on == 1: achievement_65_get = 1; achievement_get("", "购买 100 个 宇宙飞船")
+
+        if achievement_66_on == 1: achievement_66_get = 1; achievement_get("", "购买 1 个 虫洞")
+        if achievement_67_on == 1: achievement_67_get = 1; achievement_get("", "购买 5 个 虫洞")
+        if achievement_68_on == 1: achievement_68_get = 1; achievement_get("", "购买 10 个 虫洞")
+        if achievement_69_on == 1: achievement_69_get = 1; achievement_get("", "购买 50 个 虫洞")
+        if achievement_70_on == 1: achievement_70_get = 1; achievement_get("", "购买 100 个 虫洞") 
+        
+        if achievement_71_on == 1: achievement_71_get = 1; achievement_get("", "购买 1 个 时光机")
+        if achievement_72_on == 1: achievement_72_get = 1; achievement_get("", "购买 5 个 时光机")
+        if achievement_73_on == 1: achievement_73_get = 1; achievement_get("", "购买 10 个 时光机")
+        if achievement_74_on == 1: achievement_74_get = 1; achievement_get("", "购买 50 个 时光机")
+        if achievement_75_on == 1: achievement_75_get = 1; achievement_get("", "购买 100 个 时光机")    
+
+        if achievement_76_on == 1: achievement_76_get = 1; achievement_get("", "购买 1 个 反物质聚光镜")
+        if achievement_77_on == 1: achievement_77_get = 1; achievement_get("", "购买 5 个 反物质聚光镜")
+        if achievement_78_on == 1: achievement_78_get = 1; achievement_get("", "购买 10 个 反物质聚光镜")
+        if achievement_79_on == 1: achievement_69_get = 1; achievement_get("", "购买 50 个 反物质聚光镜")
+        if achievement_80_on == 1: achievement_80_get = 1; achievement_get("", "购买 100 个 反物质聚光镜") 
+        
+        if achievement_81_on == 1: achievement_81_get = 1; achievement_get("", "购买 1 个 Python 控制台")
+        if achievement_82_on == 1: achievement_82_get = 1; achievement_get("", "购买 5 个 Python 控制台")
+        if achievement_83_on == 1: achievement_83_get = 1; achievement_get("", "购买 10 个 Python 控制台")
+        if achievement_84_on == 1: achievement_84_get = 1; achievement_get("", "购买 50 个 Python 控制台")
+        if achievement_85_on == 1: achievement_85_get = 1; achievement_get("", "购买 100 个 Python 控制台")    
+        
         time.sleep(1)
 
 def click_button_clicked():  # 苹果按钮点击运算
@@ -992,8 +1040,7 @@ def timemachine_button_clicked():
 def glass_button_clicked():
     global apple_amount, price_glass, glass_amount, information, button_clicked_amount_14
     if (apple_amount - price_glass) < 0:
-        information = "没有足够的苹果。你需要至少 " + str(
-            price_glass) + " 个苹果 以购买 反物质聚光镜。"
+        information = "没有足够的苹果。你需要至少 " + str(price_glass) + " 个苹果 以购买 反物质聚光镜。"
         unsuccessful_bought_sound()
     else:
         information = "你购买了 1 个 反物质聚光镜。"
@@ -1006,11 +1053,10 @@ def glass_button_clicked():
 def js_button_clicked():
     global apple_amount, price_js, js_amount, information, button_clicked_amount_15
     if (apple_amount - price_js) < 0:
-        information = "没有足够的苹果。你需要至少 " + str(
-            price_js) + " 个苹果 以购买 JavaScript 控制台。"
+        information = "没有足够的苹果。你需要至少 " + str(price_js) + " 个苹果 以购买 Python 控制台。"
         unsuccessful_bought_sound()
     else:
-        information = "你购买了 1 个 JavaScript 控制台。"
+        information = "你购买了 1 个 Python 控制台。"
         successful_bought_sound()
         apple_amount -= price_js
         button_clicked_amount_15 += 1
