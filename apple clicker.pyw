@@ -8,12 +8,14 @@ import tkinter as tk
 from ttkbootstrap import Style
 from win10toast import ToastNotifier
 
-ver: str = 'beta0.4.0'  # 版本号
+ver: str = 'beta0.7.0'  # 版本号
 
-apple_amount: int = 0  # 初始化定义
+########## 初始化定义 ##########
+
+apple_amount: int = 0  # 苹果数量
 apple_amount_total: int = 0
 
-sponsor_amount: int = 0
+sponsor_amount: int = 0  # 建筑数量
 seed_amount: int = 0
 basket_amount: int = 0
 tree_amount: int = 0
@@ -28,9 +30,9 @@ timemachine_amount: int = 0
 glass_amount: int = 0
 js_amount: int = 0
 
-building_amount: int = 0
+building_amount: int = 0  #　建筑总数量
 
-price_sponsor: int = 10
+price_sponsor: int = 10  # 建筑价格
 price_seed: int = 80
 price_basket: int = 340
 price_tree: int = 1500
@@ -45,7 +47,7 @@ price_timemachine: int = 27000000
 price_glass: int = 315000000
 price_js: int = 1710000000
 
-value_sponsor: float = 0.5
+value_sponsor: float = 0.5  # 建筑每秒提供苹果数量
 value_seed: int = 1
 value_basket: int = 3
 value_tree: int = 7
@@ -60,7 +62,7 @@ value_timemachine: int = 750
 value_glass: int = 900
 value_js: int = 1200
 
-button_clicked_amount_2: int = 0
+button_clicked_amount_2: int = 0  # 按钮点击次数
 button_clicked_amount_3: int = 0
 button_clicked_amount_4: int = 0
 button_clicked_amount_5: int = 0
@@ -75,18 +77,37 @@ button_clicked_amount_13: int = 0
 button_clicked_amount_14: int = 0
 button_clicked_amount_15: int = 0
 
-click_time: int = 0
+click_time: int = 0  # 点击总次数
 
-upgrade_price: int = 200000
+upgrade_price: int = 200000  # 升级价格与次数
 upgrade_button_clicked_time: int = 0
 
-level_progress_now: int = 1
-left_label = "Level " + str(level_progress_now)
-right_label = "Level " + str(level_progress_now + 1)
+level_progress_now: int = 1  # 目前等级
 
-difficulty_add_multiply: float = 1.2
+difficulty_add_multiply: float = 1.2  # 难度加乘
 
-achievement_1_on: int = 0
+level_1: int = 800  # 等级划分
+level_2: int = 5000
+level_3: int = 12000
+level_4: int = 60000
+level_5: int = 200000
+level_6: int = 900000
+level_7: int = 5000000
+level_8: int = 18000000
+level_9: int = 70000000
+level_10: int = 250000000
+level_11: int = 900000000
+level_12: int = 5500000000
+level_13: int = 20000000000
+level_14: int = 75000000000
+level_15: int = 200000000000
+level_16: int = 800000000000
+level_17: int = 4000000000000
+level_18: int = 60000000000000
+level_19: int = 200000000000000
+level_20: int = 1000000000000000
+
+achievement_1_on: int = 0  # 成就达到要求
 achievement_2_on: int = 0
 achievement_3_on: int = 0
 achievement_4_on: int = 0
@@ -173,7 +194,7 @@ achievement_83_on: int = 0
 achievement_84_on: int = 0
 achievement_85_on: int = 0
 
-achievement_1_get: int = 0
+achievement_1_get: int = 0  # 成就获得
 achievement_2_get: int = 0
 achievement_3_get: int = 0
 achievement_4_get: int = 0
@@ -259,15 +280,84 @@ achievement_83_get: int = 0
 achievement_84_get: int = 0
 achievement_85_get: int = 0
 
+music_on: int = 1  # 音效开启
+
+recursion_time: int = 300  # 递归时间
+
 information: str = "欢迎来到 苹果点点乐©!  作者/版权: 轩哥啊哈OvO"  # 初始信息
 
-def main_main_operation_logic():  # 主要运算逻辑线程
-    global apple_amount
-    global apple_amount_total
-    global building_amount
-    whee = 0
-    while whee == 0:
-        global auto_add_per_second
+########## 声音系统 ##########
+
+def achievement_get_sound():  # 获得成就声音
+    if music_on == 1:
+        pygame.mixer.init()
+        pygame.mixer.music.load(r"./sound/Random_levelup.wav")
+        pygame.mixer.music.play(start=0.0)
+    else:
+        pass
+
+def click_sound():  # 按钮点击声音
+    if music_on == 1:
+        pygame.mixer.init()
+        pygame.mixer.music.load(r"./sound/click.wav")
+        pygame.mixer.music.play(start=0.0)
+    else:
+        pass
+
+def pick_apple():  # 获得苹果声音
+    if music_on == 1:
+        sound_play = random.randint(1,8)
+        if sound_play == 1:
+            sound_filepath = r"./sound/climb1.wav"
+        elif sound_play == 2:
+            sound_filepath = r"./sound/climb2.wav"
+        elif sound_play == 3:
+            sound_filepath = r"./sound/climb3.wav"
+        elif sound_play == 4:
+            sound_filepath = r"./sound/climb4.wav"
+        elif sound_play == 5:
+            sound_filepath = r"./sound/climb5.wav"
+        elif sound_play == 6:
+            sound_filepath = r"./sound/break2.wav"
+        elif sound_play == 7:
+            sound_filepath = r"./sound/break3.wav"
+        elif sound_play == 8:
+            sound_filepath = r"./sound/break4.wav"
+        pygame.mixer.init()
+        pygame.mixer.music.load(sound_filepath)
+        pygame.mixer.music.play(start=0.0)
+    else:
+        pass
+
+def successful_bought_sound():  # 成功购买建筑声音
+    if music_on == 1:
+        pygame.mixer.init()
+        pygame.mixer.music.load(r"./sound/Succesfull_Hit.wav")
+        pygame.mixer.music.play(start=0.0)
+    else:
+        pass
+
+def unsuccessful_bought_sound():  # 未成功购买建筑声音
+    if music_on == 1:
+        global sound_filepath
+        unsuccessful_bought_sound_num= random.randint(1,3)
+        if unsuccessful_bought_sound_num == 1:
+            sound_filepath = r"./sound/Villager_no1.wav"
+        elif unsuccessful_bought_sound_num == 2:
+            sound_filepath = r"./sound/Villager_no2.wav"
+        elif unsuccessful_bought_sound_num == 3:
+            sound_filepath = r"./sound/Villager_no3.wav"
+        pygame.mixer.init()
+        pygame.mixer.music.load(sound_filepath)
+        pygame.mixer.music.play(start=0.0)
+    else:
+        pass
+
+########## 逻辑运算线程 ##########
+
+def main_operation_logic():  # 主要运算逻辑线程
+    global apple_amount, apple_amount_total, building_amount, auto_add_per_second, add_per_click
+    while True:
         auto_add_per_second = int(((sponsor_amount * value_sponsor) +
                                    (seed_amount * value_seed) +
                                    (basket_amount * value_basket) +
@@ -284,7 +374,6 @@ def main_main_operation_logic():  # 主要运算逻辑线程
                                    (js_amount * value_js)) * pow(1.02, upgrade_button_clicked_time + 1))
         apple_amount += auto_add_per_second
         apple_amount_total += auto_add_per_second
-        global add_per_click
         add_per_click = int((sponsor_amount * 0.5) + \
                             (seed_amount * 0.5) + \
                             (basket_amount * 0.5) + \
@@ -305,40 +394,61 @@ def main_main_operation_logic():  # 主要运算逻辑线程
                           plane_amount + hole_amount + timemachine_amount + glass_amount + js_amount
         time.sleep(1)
 
-def upgrade_price_logic():
+def upgrade_price_logic():  # 升级价格逻辑线程
     global upgrade_price
     whaa = 0
     while whaa == 0:
         upgrade_price = int(200000 * pow(1.2, upgrade_button_clicked_time))
         time.sleep(1)
 
-def progress_bar_logic():
+def progress_bar_logic():  # 进度条逻辑线程
     global level_progress_now
-    whoo = 0
-    while whoo == 0:
-        if apple_amount_total < 12000:
+    while True:
+        if apple_amount_total < level_1:
             level_progress_now = 1
-        elif 12000 < apple_amount_total < 60000:
+        elif apple_amount_total < level_2:
             level_progress_now = 2
-        elif 60000 < apple_amount_total < 200000:
+        elif apple_amount_total < level_3:
             level_progress_now = 3
-        elif 200000 < apple_amount_total < 1000000:
+        elif apple_amount_total < level_4:
             level_progress_now = 4
-        elif 1000000 < apple_amount_total < 5500000:
+        elif apple_amount_total < level_5:
             level_progress_now = 5
-        elif 5500000 < apple_amount_total < 18000000:
+        elif apple_amount_total < level_6:
             level_progress_now = 6
-        elif 18000000 < apple_amount_total < 60000000:
+        elif apple_amount_total < level_7:
             level_progress_now = 7
-        elif 60000000 < apple_amount_total < 200000000:
+        elif apple_amount_total < level_8:
             level_progress_now = 8
-        elif 200000000 < apple_amount_total < 1000000000:
+        elif apple_amount_total < level_9:
             level_progress_now = 9
-        else:
+        elif apple_amount_total < level_10:
             level_progress_now = 10
-        time.sleep(0.5)
+        elif apple_amount_total < level_11:
+            level_progress_now = 11
+        elif apple_amount_total < level_12:
+            level_progress_now = 12
+        elif apple_amount_total < level_13:
+            level_progress_now = 13
+        elif apple_amount_total < level_14:
+            level_progress_now = 14
+        elif apple_amount_total < level_15:
+            level_progress_now = 15
+        elif apple_amount_total < level_16:
+            level_progress_now = 16
+        elif apple_amount_total < level_17:
+            level_progress_now = 17
+        elif apple_amount_total < level_18:
+            level_progress_now = 18
+        elif apple_amount_total < level_19:
+            level_progress_now = 19
+        elif apple_amount_total < level_20:
+            level_progress_now = 20
+        else:
+            level_progress_now = 21
+        time.sleep(1)
 
-def achievement_logic():
+def achievement_logic():  # 成就逻辑线程
     global information
     global achievement_1_get, achievement_2_get, achievement_3_get, achievement_4_get, achievement_5_get
     global achievement_6_get, achievement_7_get, achievement_8_get, achievement_9_get, achievement_10_get
@@ -360,376 +470,114 @@ def achievement_logic():
     
     achievement = ToastNotifier()
 
-    def achievement_get_sound():
-        #pygame.mixer.init()
-        #pygame.mixer.music.load(r"./sound/Random_levelup.wav")
-        #pygame.mixer.music.play(start=0.0)
-        pass
-
     def achievement_get(title,rule):
         global information
         information = "恭喜你 获得成就 ["+title+"]："+rule+"！"
         achievement_get_sound()
         toast_title = "获得成就 ["+title+"]"
         achievements_information_text.insert(tk.END, toast_title + ": " + rule + "\n")
-        #achievement.show_toast(title=toast_title, msg=rule, icon_path="./assets/app16x16.ico", duration=5)
+        achievement.show_toast(title=toast_title, msg=rule, icon_path="./assets/app16x16.ico", duration=5)
 
-    whao = 0
-    while whao == 0:
-        if apple_amount >= 1 and achievement_1_get == 0:
-            achievement_1_on = 1
-        else:
-            achievement_1_on = 0
-        if apple_amount >= 100 and achievement_2_get == 0:
-            achievement_2_on = 1
-        else:
-            achievement_2_on = 0
-        if apple_amount >= 1000 and achievement_3_get == 0:
-            achievement_3_on = 1
-        else:
-            achievement_3_on = 0
-        if apple_amount >= 10000 and achievement_4_get == 0:
-            achievement_4_on = 1
-        else:
-            achievement_4_on = 0
-        if apple_amount >= 100000 and achievement_5_get == 0:
-            achievement_5_on = 1
-        else:
-            achievement_5_on = 0
-        if apple_amount >= 1000000 and achievement_6_get == 0:
-            achievement_6_on = 1
-        else:
-            achievement_6_on = 0
-        if apple_amount >= 10000000 and achievement_7_get == 0:
-            achievement_7_on = 1
-        else:
-            achievement_7_on = 0
-        if apple_amount >= 100000000 and achievement_8_get == 0:
-            achievement_8_on = 1
-        else:
-            achievement_8_on = 0
-        if apple_amount >= 1000000000 and achievement_9_get == 0:
-            achievement_9_on = 1
-        else:
-            achievement_9_on = 0
-        if apple_amount >= 10000000000 and achievement_10_get == 0:
-            achievement_10_on = 1
-        else:
-            achievement_10_on = 0
-        if apple_amount >= 100000000000 and achievement_31_get == 0:
-            achievement_31_on = 1
-        else:
-            achievement_31_on = 0
-        if apple_amount >= 1000000000000 and achievement_32_get == 0:
-            achievement_32_on = 1
-        else:
-            achievement_32_on = 0
-        if apple_amount >= 10000000000000 and achievement_33_get == 0:
-            achievement_33_on = 1
-        else:
-            achievement_33_on = 0
-        if apple_amount >= 100000000000000 and achievement_34_get == 0:
-            achievement_34_on = 1
-        else:
-            achievement_34_on = 0
-        if apple_amount >= 1000000000000000 and achievement_35_get == 0:
-            achievement_35_on = 1
-        else:
-            achievement_35_on = 0
+    while True:
+        achievement_1_on = 1 if apple_amount >= 1 and achievement_1_get == 0 else 0
+        achievement_2_on = 1 if apple_amount >= 100 and achievement_2_get == 0 else 0
+        achievement_3_on = 1 if apple_amount >= 1000 and achievement_3_get == 0 else 0
+        achievement_4_on = 1 if apple_amount >= 10000 and achievement_4_get == 0 else 0
+        achievement_5_on = 1 if apple_amount >= 100000 and achievement_5_get == 0 else 0
+        achievement_6_on = 1 if apple_amount >= 1000000 and achievement_6_get == 0 else 0
+        achievement_7_on = 1 if apple_amount >= 10000000 and achievement_7_get == 0 else 0
+        achievement_8_on = 1 if apple_amount >= 100000000 and achievement_8_get == 0 else 0
+        achievement_9_on = 1 if apple_amount >= 1000000000 and achievement_9_get == 0 else 0
+        achievement_10_on = 1 if apple_amount >= 10000000000 and achievement_10_get == 0 else 0
+        achievement_31_on = 1 if apple_amount >= 100000000000 and achievement_31_get == 0 else 0
+        achievement_32_on = 1 if apple_amount >= 1000000000000 and achievement_32_get == 0 else 0
+        achievement_33_on = 1 if apple_amount >= 10000000000000 and achievement_33_get == 0 else 0
+        achievement_34_on = 1 if apple_amount >= 100000000000000 and achievement_34_get == 0 else 0
+        achievement_35_on = 1 if apple_amount >= 1000000000000000 and achievement_35_get == 0 else 0
 
-        if sponsor_amount >= 1 and achievement_11_get == 0:
-            achievement_11_on = 1
-        else:
-            achievement_11_on = 0
-        if sponsor_amount >= 2 and achievement_12_get == 0:
-            achievement_12_on = 1
-        else:
-            achievement_12_on = 0
-        if sponsor_amount >= 10 and achievement_13_get == 0:
-            achievement_13_on = 1
-        else:
-            achievement_13_on = 0
-        if sponsor_amount >= 50 and achievement_14_get == 0:
-            achievement_14_on = 1
-        else:
-            achievement_14_on = 0
-        if sponsor_amount >= 100 and achievement_15_get == 0:
-            achievement_15_on = 1
-        else:
-            achievement_15_on = 0
+        achievement_11_on = 1 if sponsor_amount >= 1 and achievement_11_get == 0 else 0
+        achievement_12_on = 1 if sponsor_amount >= 2 and achievement_12_get == 0 else 0
+        achievement_13_on = 1 if sponsor_amount >= 10 and achievement_13_get == 0 else 0
+        achievement_14_on = 1 if sponsor_amount >= 50 and achievement_14_get == 0 else 0
+        achievement_15_on = 1 if sponsor_amount >= 100 and achievement_15_get == 0 else 0
 
-        if seed_amount >= 1 and achievement_16_get == 0:
-            achievement_16_on = 1
-        else:
-            achievement_16_on = 0
-        if seed_amount >= 5 and achievement_17_get == 0:
-            achievement_17_on = 1
-        else:
-            achievement_17_on = 0
-        if seed_amount >= 10 and achievement_18_get == 0:
-            achievement_18_on = 1
-        else:
-            achievement_18_on = 0
-        if seed_amount >= 50 and achievement_19_get == 0:
-            achievement_19_on = 1
-        else:
-            achievement_19_on = 0
-        if seed_amount >= 100 and achievement_20_get == 0:
-            achievement_20_on = 1
-        else:
-            achievement_20_on = 0
+        achievement_16_on = 1 if seed_amount >= 1 and achievement_16_get == 0 else 0
+        achievement_17_on = 1 if seed_amount >= 5 and achievement_17_get == 0 else 0
+        achievement_18_on = 1 if seed_amount >= 10 and achievement_18_get == 0 else 0
+        achievement_19_on = 1 if seed_amount >= 50 and achievement_19_get == 0 else 0
+        achievement_20_on = 1 if seed_amount >= 100 and achievement_20_get == 0 else 0
 
-        if basket_amount >= 1 and achievement_21_get == 0:
-            achievement_21_on = 1
-        else:
-            achievement_21_on = 0
-        if basket_amount >= 5 and achievement_22_get == 0:
-            achievement_22_on = 1
-        else:
-            achievement_22_on = 0
-        if basket_amount >= 10 and achievement_23_get == 0:
-            achievement_23_on = 1
-        else:
-            achievement_23_on = 0
-        if basket_amount >= 50 and achievement_24_get == 0:
-            achievement_24_on = 1
-        else:
-            achievement_24_on = 0
-        if basket_amount >= 100 and achievement_25_get == 0:
-            achievement_25_on = 1
-        else:
-            achievement_25_on = 0
+        achievement_21_on = 1 if basket_amount >= 1 and achievement_21_get == 0 else 0
+        achievement_22_on = 1 if basket_amount >= 5 and achievement_22_get == 0 else 0
+        achievement_23_on = 1 if basket_amount >= 10 and achievement_23_get == 0 else 0
+        achievement_24_on = 1 if basket_amount >= 50 and achievement_24_get == 0 else 0
+        achievement_25_on = 1 if basket_amount >= 100 and achievement_25_get == 0 else 0
             
-        if tree_amount >= 1 and achievement_26_get == 0:
-            achievement_26_on = 1
-        else:
-            achievement_26_on = 0
-        if tree_amount >= 5 and achievement_27_get == 0:
-            achievement_27_on = 1
-        else:
-            achievement_27_on = 0
-        if tree_amount >= 10 and achievement_28_get == 0:
-            achievement_28_on = 1
-        else:
-            achievement_28_on = 0
-        if tree_amount >= 50 and achievement_29_get == 0:
-            achievement_29_on = 1
-        else:
-            achievement_29_on = 0
-        if tree_amount >= 100 and achievement_30_get == 0:
-            achievement_30_on = 1
-        else:
-            achievement_30_on = 0
+        achievement_26_on = 1 if tree_amount >= 1 and achievement_26_get == 0 else 0
+        achievement_27_on = 1 if tree_amount >= 5 and achievement_27_get == 0 else 0
+        achievement_28_on = 1 if tree_amount >= 10 and achievement_28_get == 0 else 0
+        achievement_29_on = 1 if tree_amount >= 50 and achievement_29_get == 0 else 0
+        achievement_30_on = 1 if tree_amount >= 100 and achievement_30_get == 0 else 0
             
-        if garden_amount >= 1 and achievement_36_get == 0:
-            achievement_36_on = 1
-        else:
-            achievement_36_on = 0
-        if garden_amount >= 5 and achievement_37_get == 0:
-            achievement_37_on = 1
-        else:
-            achievement_37_on = 0
-        if garden_amount >= 10 and achievement_38_get == 0:
-            achievement_38_on = 1
-        else:
-            achievement_38_on = 0
-        if garden_amount >= 50 and achievement_39_get == 0:
-            achievement_39_on = 1
-        else:
-            achievement_39_on = 0
-        if garden_amount >= 100 and achievement_40_get == 0:
-            achievement_40_on = 1
-        else:
-            achievement_40_on = 0
+        achievement_36_on = 1 if garden_amount >= 1 and achievement_36_get == 0 else 0
+        achievement_37_on = 1 if garden_amount >= 5 and achievement_37_get == 0 else 0
+        achievement_38_on = 1 if garden_amount >= 10 and achievement_38_get == 0 else 0
+        achievement_39_on = 1 if garden_amount >= 50 and achievement_39_get == 0 else 0
+        achievement_40_on = 1 if garden_amount >= 100 and achievement_40_get == 0 else 0
         
-        if town_amount >= 1 and achievement_41_get == 0:
-            achievement_41_on = 1
-        else:
-            achievement_41_on = 0
-        if town_amount >= 5 and achievement_42_get == 0:
-            achievement_42_on = 1
-        else:
-            achievement_42_on = 0
-        if town_amount >= 10 and achievement_43_get == 0:
-            achievement_43_on = 1
-        else:
-            achievement_43_on = 0
-        if town_amount >= 50 and achievement_44_get == 0:
-            achievement_44_on = 1
-        else:
-            achievement_44_on = 0
-        if town_amount >= 100 and achievement_45_get == 0:
-            achievement_45_on = 1
-        else:
-            achievement_45_on = 0
+        achievement_41_on = 1 if town_amount >= 1 and achievement_41_get == 0 else 0
+        achievement_42_on = 1 if town_amount >= 5 and achievement_42_get == 0 else 0
+        achievement_43_on = 1 if town_amount >= 10 and achievement_43_get == 0 else 0
+        achievement_44_on = 1 if town_amount >= 50 and achievement_44_get == 0 else 0
+        achievement_45_on = 1 if town_amount >= 100 and achievement_45_get == 0 else 0
 
-        if country_amount >= 1 and achievement_46_get == 0:
-            achievement_46_on = 1
-        else:
-            achievement_46_on = 0
-        if country_amount >= 5 and achievement_47_get == 0:
-            achievement_47_on = 1
-        else:
-            achievement_47_on = 0
-        if country_amount >= 10 and achievement_48_get == 0:
-            achievement_48_on = 1
-        else:
-            achievement_48_on = 0
-        if country_amount >= 50 and achievement_49_get == 0:
-            achievement_49_on = 1
-        else:
-            achievement_49_on = 0
-        if country_amount >= 100 and achievement_50_get == 0:
-            achievement_50_on = 1
-        else:
-            achievement_50_on = 0
+        achievement_46_on = 1 if country_amount >= 1 and achievement_46_get == 0 else 0
+        achievement_47_on = 1 if country_amount >= 5 and achievement_47_get == 0 else 0
+        achievement_48_on = 1 if country_amount >= 10 and achievement_48_get == 0 else 0
+        achievement_49_on = 1 if country_amount >= 50 and achievement_49_get == 0 else 0
+        achievement_50_on = 1 if country_amount >= 100 and achievement_50_get == 0 else 0
 
-        if planet_amount >= 1 and achievement_51_get == 0:
-            achievement_51_on = 1
-        else:
-            achievement_51_on = 0
-        if planet_amount >= 5 and achievement_52_get == 0:
-            achievement_52_on = 1
-        else:
-            achievement_52_on = 0
-        if planet_amount >= 10 and achievement_53_get == 0:
-            achievement_53_on = 1
-        else:
-            achievement_53_on = 0
-        if planet_amount >= 50 and achievement_54_get == 0:
-            achievement_54_on = 1
-        else:
-            achievement_54_on = 0
-        if planet_amount >= 100 and achievement_55_get == 0:
-            achievement_55_on = 1
-        else:
-            achievement_55_on = 0
+        achievement_51_on = 1 if planet_amount >= 1 and achievement_51_get == 0 else 0
+        achievement_52_on = 1 if planet_amount >= 5 and achievement_52_get == 0 else 0
+        achievement_53_on = 1 if planet_amount >= 10 and achievement_53_get == 0 else 0
+        achievement_54_on = 1 if planet_amount >= 50 and achievement_54_get == 0 else 0
+        achievement_55_on = 1 if planet_amount >= 100 and achievement_55_get == 0 else 0
 
-        if wizardtower_amount >= 1 and achievement_56_get == 0:
-            achievement_56_on = 1
-        else:
-            achievement_56_on = 0
-        if wizardtower_amount >= 5 and achievement_57_get == 0:
-            achievement_57_on = 1
-        else:
-            achievement_57_on = 0
-        if wizardtower_amount >= 10 and achievement_58_get == 0:
-            achievement_58_on = 1
-        else:
-            achievement_58_on = 0
-        if wizardtower_amount >= 50 and achievement_59_get == 0:
-            achievement_59_on = 1
-        else:
-            achievement_59_on = 0
-        if wizardtower_amount >= 100 and achievement_50_get == 0:
-            achievement_60_on = 1
-        else:
-            achievement_60_on = 0        
+        achievement_56_on = 1 if wizardtower_amount >= 1 and achievement_56_get == 0 else 0
+        achievement_57_on = 1 if wizardtower_amount >= 5 and achievement_57_get == 0 else 0
+        achievement_58_on = 1 if wizardtower_amount >= 10 and achievement_58_get == 0 else 0
+        achievement_59_on = 1 if wizardtower_amount >= 50 and achievement_59_get == 0 else 0
+        achievement_60_on = 1 if wizardtower_amount >= 100 and achievement_60_get == 0 else 0        
 
-        if plane_amount >= 1 and achievement_61_get == 0:
-            achievement_61_on = 1
-        else:
-            achievement_61_on = 0
-        if plane_amount >= 5 and achievement_62_get == 0:
-            achievement_62_on = 1
-        else:
-            achievement_62_on = 0
-        if plane_amount >= 10 and achievement_63_get == 0:
-            achievement_63_on = 1
-        else:
-            achievement_63_on = 0
-        if plane_amount >= 50 and achievement_66_get == 0:
-            achievement_66_on = 1
-        else:
-            achievement_66_on = 0
-        if plane_amount >= 100 and achievement_65_get == 0:
-            achievement_65_on = 1
-        else:
-            achievement_65_on = 0
+        achievement_61_on = 1 if plane_amount >= 1 and achievement_61_get == 0 else 0
+        achievement_62_on = 1 if plane_amount >= 5 and achievement_62_get == 0 else 0
+        achievement_63_on = 1 if plane_amount >= 10 and achievement_63_get == 0 else 0
+        achievement_64_on = 1 if plane_amount >= 50 and achievement_64_get == 0 else 0
+        achievement_65_on = 1 if plane_amount >= 100 and achievement_65_get == 0 else 0
 
-        if hole_amount >= 1 and achievement_66_get == 0:
-            achievement_66_on = 1
-        else:
-            achievement_66_on = 0
-        if hole_amount >= 5 and achievement_67_get == 0:
-            achievement_67_on = 1
-        else:
-            achievement_67_on = 0
-        if hole_amount >= 10 and achievement_68_get == 0:
-            achievement_68_on = 1
-        else:
-            achievement_68_on = 0
-        if hole_amount >= 50 and achievement_69_get == 0:
-            achievement_69_on = 1
-        else:
-            achievement_69_on = 0
-        if hole_amount >= 100 and achievement_70_get == 0:
-            achievement_70_on = 1
-        else:
-            achievement_70_on = 0
+        achievement_66_on = 1 if hole_amount >= 1 and achievement_66_get == 0 else 0
+        achievement_67_on = 1 if hole_amount >= 5 and achievement_67_get == 0 else 0
+        achievement_68_on = 1 if hole_amount >= 10 and achievement_68_get == 0 else 0
+        achievement_69_on = 1 if hole_amount >= 50 and achievement_69_get == 0 else 0
+        achievement_70_on = 1 if hole_amount >= 100 and achievement_70_get == 0 else 0
 
-        if timemachine_amount >= 1 and achievement_71_get == 0:
-            achievement_71_on = 1
-        else:
-            achievement_71_on = 0
-        if timemachine_amount >= 5 and achievement_72_get == 0:
-            achievement_72_on = 1
-        else:
-            achievement_72_on = 0
-        if timemachine_amount >= 10 and achievement_73_get == 0:
-            achievement_73_on = 1
-        else:
-            achievement_73_on = 0
-        if timemachine_amount >= 50 and achievement_74_get == 0:
-            achievement_74_on = 1
-        else:
-            achievement_74_on = 0
-        if timemachine_amount >= 100 and achievement_75_get == 0:
-            achievement_75_on = 1
-        else:
-            achievement_75_on = 0
+        achievement_71_on = 1 if timemachine_amount >= 1 and achievement_71_get == 0 else 0
+        achievement_72_on = 1 if timemachine_amount >= 5 and achievement_72_get == 0 else 0
+        achievement_73_on = 1 if timemachine_amount >= 10 and achievement_73_get == 0 else 0
+        achievement_74_on = 1 if timemachine_amount >= 50 and achievement_74_get == 0 else 0
+        achievement_75_on = 1 if timemachine_amount >= 100 and achievement_75_get == 0 else 0
 
-        if glass_amount >= 1 and achievement_76_get == 0:
-            achievement_76_on = 1
-        else:
-            achievement_76_on = 0
-        if glass_amount >= 5 and achievement_77_get == 0:
-            achievement_77_on = 1
-        else:
-            achievement_77_on = 0
-        if glass_amount >= 10 and achievement_78_get == 0:
-            achievement_78_on = 1
-        else:
-            achievement_78_on = 0
-        if glass_amount >= 50 and achievement_79_get == 0:
-            achievement_79_on = 1
-        else:
-            achievement_79_on = 0
-        if glass_amount >= 100 and achievement_80_get == 0:
-            achievement_80_on = 1
-        else:
-            achievement_80_on = 0
+        achievement_76_on = 1 if glass_amount >= 1 and achievement_76_get == 0 else 0
+        achievement_77_on = 1 if glass_amount >= 5 and achievement_77_get == 0 else 0
+        achievement_78_on = 1 if glass_amount >= 10 and achievement_78_get == 0 else 0
+        achievement_79_on = 1 if glass_amount >= 50 and achievement_79_get == 0 else 0
+        achievement_80_on = 1 if glass_amount >= 100 and achievement_80_get == 0 else 0
 
-        if js_amount >= 1 and achievement_81_get == 0:
-            achievement_81_on = 1
-        else:
-            achievement_81_on = 0
-        if js_amount >= 5 and achievement_82_get == 0:
-            achievement_82_on = 1
-        else:
-            achievement_82_on = 0
-        if js_amount >= 10 and achievement_83_get == 0:
-            achievement_83_on = 1
-        else:
-            achievement_83_on = 0
-        if js_amount >= 50 and achievement_84_get == 0:
-            achievement_84_on = 1
-        else:
-            achievement_84_on = 0
-        if js_amount >= 100 and achievement_85_get == 0:
-            achievement_85_on = 1
-        else:
-            achievement_85_on = 0
+        achievement_81_on = 1 if js_amount >= 1 and achievement_81_get == 0 else 0
+        achievement_82_on = 1 if js_amount >= 5 and achievement_82_get == 0 else 0
+        achievement_83_on = 1 if js_amount >= 10 and achievement_83_get == 0 else 0
+        achievement_84_on = 1 if js_amount >= 50 and achievement_84_get == 0 else 0
+        achievement_85_on = 1 if js_amount >= 100 and achievement_85_get == 0 else 0
 
         if achievement_1_on == 1: achievement_1_get = 1; achievement_get("春天的苏醒","收获 1 个苹果")
         if achievement_2_on == 1: achievement_2_get = 1; achievement_get("苹果的气息", "收获 100 个苹果")
@@ -793,7 +641,7 @@ def achievement_logic():
         if achievement_52_on == 1: achievement_52_get = 1; achievement_get("一小笔钱", "购买 5 个 水果银行")
         if achievement_53_on == 1: achievement_53_get = 1; achievement_get("苹果经济学", "购买 10 个 水果银行")
         if achievement_54_on == 1: achievement_54_get = 1; achievement_get("既得利益", "购买 50 个 水果银行")
-        if achievement_55_on == 1: achievement_55_get = 1; achievement_get("多么富有", "购买 100 个 水果银行")    
+        if achievement_55_on == 1: achievement_55_get = 1; achievement_get("如此富有", "购买 100 个 水果银行")    
  
         if achievement_56_on == 1: achievement_56_get = 1; achievement_get("召唤！", "购买 1 个 魔法巫师塔")
         if achievement_57_on == 1: achievement_57_get = 1; achievement_get("魔法师的学徒", "购买 5 个 魔法巫师塔")
@@ -822,7 +670,7 @@ def achievement_logic():
         if achievement_76_on == 1: achievement_76_get = 1; achievement_get("孤独光子", "购买 1 个 三棱镜")
         if achievement_77_on == 1: achievement_77_get = 1; achievement_get("只剩红色", "购买 5 个 三棱镜")
         if achievement_78_on == 1: achievement_78_get = 1; achievement_get("视觉幻象", "购买 10 个 三棱镜")
-        if achievement_79_on == 1: achievement_69_get = 1; achievement_get("我赞美太阳", "购买 50 个 三棱镜")
+        if achievement_79_on == 1: achievement_79_get = 1; achievement_get("我赞美太阳", "购买 50 个 三棱镜")
         if achievement_80_on == 1: achievement_80_get = 1; achievement_get("无尽光辉", "购买 100 个 三棱镜") 
         
         if achievement_81_on == 1: achievement_81_get = 1; achievement_get("Enter", "购买 1 个 Python 控制台")
@@ -833,53 +681,14 @@ def achievement_logic():
         
         time.sleep(1)
 
+########## 按钮点击运算 ##########
+
 def click_button_clicked():  # 苹果按钮点击运算
-    global apple_amount
-    global apple_amount_total
-    global click_time
-    global sound_filepath
-    sound_play = random.randint(1,8)
-    if sound_play == 1:
-        sound_filepath = r"./sound/climb1.wav"
-    elif sound_play == 2:
-        sound_filepath = r"./sound/climb2.wav"
-    elif sound_play == 3:
-        sound_filepath = r"./sound/climb3.wav"
-    elif sound_play == 4:
-        sound_filepath = r"./sound/climb4.wav"
-    elif sound_play == 5:
-        sound_filepath = r"./sound/climb5.wav"
-    elif sound_play == 6:
-        sound_filepath = r"./sound/break2.wav"
-    elif sound_play == 7:
-        sound_filepath = r"./sound/break3.wav"
-    elif sound_play == 8:
-        sound_filepath = r"./sound/break4.wav"
-    #pygame.mixer.init()
-    #pygame.mixer.music.load(sound_filepath)
-    #pygame.mixer.music.play(start=0.0)
+    global apple_amount, apple_amount_total, click_time
+    pick_apple()
     apple_amount += add_per_click
     apple_amount_total += add_per_click
     click_time += 1
-
-def successful_bought_sound():
-    #pygame.mixer.init()
-    #pygame.mixer.music.load(r"./sound/Succesfull_Hit.wav")
-    #pygame.mixer.music.play(start=0.0)
-    pass
-
-def unsuccessful_bought_sound():
-    global sound_filepath
-    unsuccessful_bought_sound_num= random.randint(1,3)
-    if unsuccessful_bought_sound_num == 1:
-        sound_filepath = r"./sound/Villager_no1.wav"
-    elif unsuccessful_bought_sound_num == 2:
-        sound_filepath = r"./sound/Villager_no2.wav"
-    elif unsuccessful_bought_sound_num == 3:
-        sound_filepath = r"./sound/Villager_no3.wav"
-    #pygame.mixer.init()
-    #pygame.mixer.music.load(sound_filepath)
-    #pygame.mixer.music.play(start=0.0)
 
 def sponsor_button_clicked():  # 建筑购买运算
     global apple_amount, price_sponsor, sponsor_amount, information, button_clicked_amount_2
@@ -1063,25 +872,30 @@ def js_button_clicked():
         price_js += button_clicked_amount_15 + 13
         js_amount += 1
 
-def apple_amount_entry_update():  # 左侧信息栏显示运算
-    global apple_amount
+def upgrade_button_clicked():  # 升级运算
+    global apple_amount, information, upgrade_button_clicked_time
+    if (apple_amount - upgrade_price) < 0:
+        unsuccessful_bought_sound()
+        information = "没有足够的苹果。你需要至少 " + str(int(upgrade_price)) + " 个苹果以升级。"
+    else:
+        successful_bought_sound()
+        apple_amount -= upgrade_price
+        upgrade_button_clicked_time += 1
+        information = "你升级至了 Level " + str(upgrade_button_clicked_time + 1) + "！"
+
+########## 递归显示运算 ##########
+
+def apple_amount_entry_update():  # 左侧信息栏显示递归
+    global apple_amount, add_per_click, auto_add_per_second
     apple_amount_entry.delete(0, "end")
     apple_amount_entry.insert(0, str(apple_amount))
-    apple_amount_entry.after(20, apple_amount_entry_update)
-
-def apple_per_click_entry_update():
-    global add_per_click
     apple_per_click_entry.delete(0, "end")
     apple_per_click_entry.insert(0, ("+ " + str(add_per_click) + " / click"))
-    apple_per_click_entry.after(20, apple_per_click_entry_update)
-
-def apple_per_second_entry_update():
-    global auto_add_per_second
     apple_per_second_entry.delete(0, "end")
     apple_per_second_entry.insert(0, ("+ " + str(auto_add_per_second) + " / s"))
-    apple_per_second_entry.after(20, apple_per_second_entry_update)
+    apple_amount_entry.after(100, apple_amount_entry_update)
 
-def entry_information_number_upgrade():  # 信息网格显示运算
+def entry_information_number_upgrade():  # 信息网格显示递归
     global sponsor_amount, seed_amount, basket_amount, tree_amount, garden_amount
     global town_amount, country_amount, planet_amount, wizardtower_amount, plane_amount
     global hole_amount, timemachine_amount, glass_amount, js_amount
@@ -1177,24 +991,93 @@ def entry_information_number_upgrade():  # 信息网格显示运算
     entry_information_number_145.insert(0, ("+" + str(value_glass * glass_amount)) + " / s")
     entry_information_number_155.delete(0, "end")
     entry_information_number_155.insert(0, ("+" + str(value_js * js_amount)) + " / s")
-    entry_information_number_155.after(300, entry_information_number_upgrade)
+    entry_information_number_155.after(recursion_time, entry_information_number_upgrade)
 
-def entry_information_information_upgrade():
+def entry_information_information_upgrade():  # 信息栏显示递归
     entry_information_information.delete(0, "end")
     entry_information_information.insert(0, information)
-    entry_information_information.after(300, entry_information_information_upgrade)
+    entry_information_information.after(recursion_time, entry_information_information_upgrade)
 
-def click_sound():
-    #pygame.mixer.init()
-    #pygame.mixer.music.load(r"./sound/click.wav")
-    #pygame.mixer.music.play(start=0.0)
-    pass
+def statistics_text_upgrade():  # 统计信息显示递归
+    statistics_text.delete(1.0, tk.END)
+    statistics_text.insert("insert", ("现在的苹果数量：" + str(apple_amount) +
+                                      "\n总苹果数量：" + str(apple_amount_total) +
+                                      "\n总建筑数量：" + str(building_amount) +
+                                      "\n点击次数：" + str(click_time)))
+    statistics_text.after(recursion_time, statistics_text_upgrade)
+
+def upgrade_button_entry_update():  # 升级显示递归
+    upgrade_button_entry.delete(0, "end")
+    upgrade_button_entry.insert(0, "Level " + str(upgrade_button_clicked_time + 1) + " 至 Level " + str(upgrade_button_clicked_time + 2))
+    upgrade_button_entry_price.delete(0, "end")
+    upgrade_button_entry_price.insert(0, "价格：" + str(int(upgrade_price)))
+    upgrade_button_entry.after(recursion_time, upgrade_button_entry_update)
+
+def achievement_progress_update():  # 成就进度条显示递归
+    achievement_get_num = (achievement_1_get + achievement_2_get + achievement_3_get + achievement_4_get + achievement_5_get + 
+                          achievement_6_get + achievement_7_get + achievement_8_get + achievement_9_get + achievement_10_get + 
+                          achievement_11_get + achievement_12_get + achievement_13_get + achievement_14_get + achievement_15_get + 
+                          achievement_16_get + achievement_17_get + achievement_18_get + achievement_19_get + achievement_20_get + 
+                          achievement_21_get + achievement_22_get + achievement_23_get + achievement_24_get + achievement_25_get + 
+                          achievement_26_get + achievement_27_get + achievement_28_get + achievement_29_get + achievement_30_get + 
+                          achievement_31_get + achievement_32_get + achievement_33_get + achievement_34_get + achievement_35_get + 
+                          achievement_36_get + achievement_37_get + achievement_38_get + achievement_39_get + achievement_40_get + 
+                          achievement_41_get + achievement_42_get + achievement_43_get + achievement_44_get + achievement_45_get + 
+                          achievement_46_get + achievement_47_get + achievement_48_get + achievement_49_get + achievement_50_get + 
+                          achievement_51_get + achievement_52_get + achievement_53_get + achievement_54_get + achievement_55_get + 
+                          achievement_56_get + achievement_57_get + achievement_58_get + achievement_59_get + achievement_60_get + 
+                          achievement_61_get + achievement_62_get + achievement_63_get + achievement_64_get + achievement_65_get + 
+                          achievement_66_get + achievement_67_get + achievement_68_get + achievement_69_get + achievement_70_get + 
+                          achievement_71_get + achievement_72_get + achievement_73_get + achievement_74_get + achievement_75_get + 
+                          achievement_76_get + achievement_77_get + achievement_78_get + achievement_79_get + achievement_80_get + 
+                          achievement_81_get + achievement_82_get + achievement_83_get + achievement_84_get + achievement_85_get)
+    achievement_progress_bar['value'] = achievement_get_num
+    achievement_progress_entry.delete(0, "end")
+    achievement_progress_entry.insert(0, str(achievement_get_num) + "/" + str(achevement_num_all))
+    achievement_progress_entry.after(recursion_time, achievement_progress_update)
+
+def time_entry_update():  # 时间显示递归
+    time_entry.delete(0, "end")
+    time_entry.insert(0, time.asctime(time.localtime(time.time())))
+    time_entry.after(300, time_entry_update)
+
+def level_progress_bar_update():  # 等级进度条显示递归
+    if level_progress_now == 1: level_progress_bar['maximum'] = level_1; level_progress_bar['value'] = apple_amount_total
+    elif level_progress_now == 2: level_progress_bar['maximum'] = level_2 - level_1; level_progress_bar['value'] = apple_amount_total - level_1
+    elif level_progress_now == 3: level_progress_bar['maximum'] = level_3 - level_2; level_progress_bar['value'] = apple_amount_total - level_2
+    elif level_progress_now == 4: level_progress_bar['maximum'] = level_4 - level_3; level_progress_bar['value'] = apple_amount_total - level_3
+    elif level_progress_now == 5: level_progress_bar['maximum'] = level_5 - level_4; level_progress_bar['value'] = apple_amount_total - level_4
+    elif level_progress_now == 6: level_progress_bar['maximum'] = level_6 - level_5; level_progress_bar['value'] = apple_amount_total - level_5
+    elif level_progress_now == 7: level_progress_bar['maximum'] = level_7 - level_6; level_progress_bar['value'] = apple_amount_total - level_6
+    elif level_progress_now == 8: level_progress_bar['maximum'] = level_8 - level_7; level_progress_bar['value'] = apple_amount_total - level_7
+    elif level_progress_now == 9: level_progress_bar['maximum'] = level_9 - level_8; level_progress_bar['value'] = apple_amount_total - level_8
+    elif level_progress_now == 10: level_progress_bar['maximum'] = level_10 - level_9; level_progress_bar['value'] = apple_amount_total - level_9
+    elif level_progress_now == 11: level_progress_bar['maximum'] = level_11 - level_10; level_progress_bar['value'] = apple_amount_total - level_10
+    elif level_progress_now == 12: level_progress_bar['maximum'] = level_12 - level_11; level_progress_bar['value'] = apple_amount_total - level_11
+    elif level_progress_now == 13: level_progress_bar['maximum'] = level_13 - level_12; level_progress_bar['value'] = apple_amount_total - level_12
+    elif level_progress_now == 14: level_progress_bar['maximum'] = level_14 - level_13; level_progress_bar['value'] = apple_amount_total - level_13
+    elif level_progress_now == 15: level_progress_bar['maximum'] = level_15 - level_14; level_progress_bar['value'] = apple_amount_total - level_14
+    elif level_progress_now == 16: level_progress_bar['maximum'] = level_16 - level_15; level_progress_bar['value'] = apple_amount_total - level_15
+    elif level_progress_now == 17: level_progress_bar['maximum'] = level_17 - level_16; level_progress_bar['value'] = apple_amount_total - level_16
+    elif level_progress_now == 18: level_progress_bar['maximum'] = level_18 - level_17; level_progress_bar['value'] = apple_amount_total - level_17
+    elif level_progress_now == 19: level_progress_bar['maximum'] = level_19 - level_18; level_progress_bar['value'] = apple_amount_total - level_18
+    elif level_progress_now == 20: level_progress_bar['maximum'] = level_20 - level_19; level_progress_bar['value'] = apple_amount_total - level_19
+    level_progress_label_left.delete(0, "end")
+    level_progress_label_left.insert(0, "Level " + str(level_progress_now))
+    level_progress_label_right.delete(0, "end")
+    level_progress_label_right.insert(0, "Level " + str(level_progress_now + 1))
+    level_progress_bar.after(recursion_time, level_progress_bar_update)
+
+########## 其他窗口 ##########
+
+def blank(win,row=int,column=int):  # 占位符
+    blank = tk.Label(win,text="     ")
+    blank.grid(row=row,column=column)
 
 def window_download():  # 存档下载窗口
     click_sound()
     rootdownload = tk.Tk()
     rootdownload.title("导出存档")
-    # noinspection PyTypeChecker
     rootdownload.resizable(0, 0)
 
     encode_string: str = str(apple_amount) + "|" + str(apple_amount_total) + "|" + str(sponsor_amount) + "|" + str(
@@ -1228,7 +1111,6 @@ def window_upload():  # 存档上传窗口
     click_sound()
     rootupload = tk.Tk()
     rootupload.title("导入存档")
-    # noinspection PyTypeChecker
     rootupload.resizable(0, 0)
 
     save_upload_label = tk.Label(rootupload, text="请输入上次游戏保存的字符串以继续游戏！")
@@ -1314,7 +1196,6 @@ def window_about():  # 关于窗口
     click_sound()
     rootabout = tk.Toplevel()
     rootabout.title("关于：苹果点点乐 Apple Clicker©")
-    # noinspection PyTypeChecker
     rootabout.resizable(0, 0)
 
     frame_icon = tk.Frame(rootabout,padx=50)
@@ -1335,7 +1216,7 @@ def window_about():  # 关于窗口
 
     def log_clicked():
         click_sound()
-        file_open = open("log/log.txt", "r", encoding='utf-8')
+        file_open = open("log/logs.txt", "r", encoding='utf-8')
         file_log = file_open.read()
         file_open.close()
 
@@ -1353,7 +1234,7 @@ def window_about():  # 关于窗口
 
     def module_clicked():
         click_sound()
-        file_open = open("log/module.txt", "r", encoding='utf-8')
+        file_open = open("log/modules.txt", "r", encoding='utf-8')
         file_log = file_open.read()
         file_open.close()
 
@@ -1365,16 +1246,14 @@ def window_about():  # 关于窗口
                          overrelief='sunken', text="更新信息..",command=log_clicked)
     button_log.grid(row=1, column=1)
 
-    blank_1 = tk.Label(button_frame,text=" ")
-    blank_1.grid(row=1,column=2)
+    blank(button_frame,1,2)
 
     button_credit = tk.Button(button_frame,
                          cursor='hand2',
                          overrelief='sunken', text="制作者..",command=credit_clicked)
     button_credit.grid(row=1, column=3)
 
-    blank_2 = tk.Label(button_frame,text=" ")
-    blank_2.grid(row=1,column=4)
+    blank(button_frame,1,4)
 
     button_module = tk.Button(button_frame,
                          cursor='hand2',
@@ -1387,7 +1266,7 @@ def window_about():  # 关于窗口
     text_about = tk.Text(frame_text,width=60)
     text_about.pack()
 
-    file_open = open("log/log.txt", "r", encoding='utf-8')
+    file_open = open("log/logs.txt", "r", encoding='utf-8')
     file_log = file_open.read()
     file_open.close()
 
@@ -1396,93 +1275,97 @@ def window_about():  # 关于窗口
 
     rootabout.mainloop()
 
-def statistics_text_upgrade():  # 统计信息显示运算
-    statistics_text.delete(1.0, tk.END)
-    statistics_text.insert("insert", ("现在的苹果数量：" + str(apple_amount) +
-                                      "\n总苹果数量：" + str(apple_amount_total) +
-                                      "\n总建筑数量：" + str(building_amount) +
-                                      "\n点击次数：" + str(click_time)))
-    statistics_text.after(300, statistics_text_upgrade)
+def window_cheat():  # 作弊传送门窗口
+    click_sound()
+    rootcheat = tk.Tk()
+    rootcheat.title("作弊传送门")
+    rootcheat.resizable(0, 0)
 
-def upgrade_button_clicked():  # 升级运算
-    global apple_amount, information, upgrade_button_clicked_time
-    if (apple_amount - upgrade_price) < 0:
-        information = "没有足够的苹果。你需要至少 " + str(int(upgrade_price)) + " 个苹果以升级。"
+    cheat_label = tk.Label(rootcheat, text="作弊而得的苹果尝起来很难吃，不是吗？")
+    cheat_label.grid(row=1,column=1,columnspan=3)
+
+    cheat_entry = tk.Entry(rootcheat, width=100, justify='center')
+    cheat_entry.grid(row=2,column=1,columnspan=3)
+
+    def cheat_process():
+        click_sound()
+        global apple_amount, apple_amount_total
+        cheat = cheat_entry.get().split(" ")
+
+        if cheat[0] == '/earn':
+            if cheat[1] == 'apple':
+                try:
+                    cheat_add = int(cheat[2])
+                    apple_amount += cheat_add
+                    apple_amount_total += cheat_add
+                except:
+                    pass
+
+    save_cheat_button = tk.Button(rootcheat, width=10, text="加载..",
+                                cursor='hand2', overrelief='sunken',command=cheat_process)
+    save_cheat_button.grid(row=3,column=1)
+
+    def cheat_close():
+        click_sound()
+        rootcheat.destroy()
+
+    close_cheat_button = tk.Button(rootcheat, width=10, text="关闭..", 
+                                cursor='hand2', overrelief='sunken', command=cheat_close)
+    close_cheat_button.grid(row=3,column=3)
+
+    rootcheat.mainloop()
+
+def window_settings():  # 设置窗口
+    click_sound()
+    rootsettings = tk.Tk()
+    rootsettings.title("游戏设置")
+    rootsettings.resizable(0, 0)
+
+    blank(rootsettings,0,0)
+    
+    blank(rootsettings,0,3)
+
+    def togglemusic():
+        global music_on, information
+        if music_on == 1:
+            set_1_button['text'] = "开启"
+            information = "设置：音效已关闭"
+            music_on = 0
+        else:
+            set_1_button['text'] = "关闭"
+            information = "设置：音效已开启"
+            music_on = 1
+
+    set_1_label = tk.Label(rootsettings,text="音效：  ")
+    set_1_label.grid(row=1,column=1)
+
+    set_1_button = tk.Button(rootsettings,command=togglemusic,width=10)
+    set_1_button.grid(row=1,column=2)
+
+    if music_on == 1:
+        set_1_button['text'] = "关闭"
     else:
-        apple_amount -= upgrade_price
-        upgrade_button_clicked_time += 1
-        information = "你升级至了 Level " + str(upgrade_button_clicked_time + 1) + "！"
+        set_1_button['text'] = "开启"
 
-def statistics_button_entry_update():
-    statistics_button_entry.delete(0, "end")
-    statistics_button_entry.insert(0, "Level " + str(upgrade_button_clicked_time + 1) + " 至 Level " + str(
-        upgrade_button_clicked_time + 2))
-    statistics_button_entry.after(300, statistics_button_entry_update)
+    blank(rootsettings,10,0)
+    
+    blank(rootsettings,10,3)
 
-def statistics_button_entry_price_update():
-    statistics_button_entry_price.delete(0, "end")
-    statistics_button_entry_price.insert(0, "价格：" + str(int(upgrade_price)))
-    statistics_button_entry_price.after(300, statistics_button_entry_price_update)
-
-def level_progress_bar_update():  # 等级进度条运算
-    if level_progress_now == 1:
-        level_progress_bar['maximum'] = 12000
-        level_progress_bar['value'] = apple_amount_total
-    elif level_progress_now == 2:
-        level_progress_bar['maximum'] = 48000
-        level_progress_bar['value'] = apple_amount_total - 12000
-    elif level_progress_now == 3:
-        level_progress_bar['maximum'] = 140000
-        level_progress_bar['value'] = apple_amount_total - 60000
-    elif level_progress_now == 4:
-        level_progress_bar['maximum'] = 800000
-        level_progress_bar['value'] = apple_amount_total - 200000
-    elif level_progress_now == 5:
-        level_progress_bar['maximum'] = 4500000
-        level_progress_bar['value'] = apple_amount_total - 1000000
-    elif level_progress_now == 6:
-        level_progress_bar['maximum'] = 13000000
-        level_progress_bar['value'] = apple_amount_total - 5500000
-    elif level_progress_now == 7:
-        level_progress_bar['maximum'] = 42000000
-        level_progress_bar['value'] = apple_amount_total - 18000000
-    elif level_progress_now == 8:
-        level_progress_bar['maximum'] = 140000000
-        level_progress_bar['value'] = apple_amount_total - 60000000
-    elif level_progress_now == 9:
-        level_progress_bar['maximum'] = 800000000
-        level_progress_bar['value'] = apple_amount_total - 200000000
-    elif level_progress_now == 10:
-        level_progress_bar['maximum'] = 100000000000
-        level_progress_bar['value'] = apple_amount_total - 1000000000
-    else:
-        pass
-    level_progress_bar.after(300, level_progress_bar_update)
-
-def level_progress_label_left_update():
-    global left_label
-    level_progress_label_left.delete(0, "end")
-    level_progress_label_left.insert(0, "Level " + str(level_progress_now))
-    level_progress_label_left.after(300, level_progress_label_left_update)
-
-def level_progress_label_right_update():
-    global right_label
-    level_progress_label_right.delete(0, "end")
-    level_progress_label_right.insert(0, "Level " + str(level_progress_now + 1))
-    level_progress_label_right.after(300, level_progress_label_right_update)
+    rootsettings.mainloop()
 
 def root_close():  # 窗口关闭
     root.destroy()
     sys.exit()
 
-root = tk.Tk()  # 主窗口
+########## 主窗口 ##########
+
+root = tk.Tk()
 root.title("Apple Clicker© " + ver)
 root.iconphoto(True, tk.PhotoImage(file='./assets/app.png'))
-# noinspection PyTypeChecker
 root.resizable(0, 0)
 root.overrideredirect(False)
 
-def SaveLastClickPos(event):
+def SaveLastClickPos(event):  # 窗口拖动
     global lastClickX, lastClickY
     lastClickX = event.x
     lastClickY = event.y
@@ -1494,9 +1377,9 @@ def Dragging(event):
 root.bind('<Button-1>', SaveLastClickPos)
 root.bind('<B1-Motion>', Dragging)
 
-style = Style(theme='journal')
+style = Style(theme='journal')  # ttk窗口主题
 
-auto_amount_add_per_second_thread = threading.Thread(target=main_main_operation_logic)  # 主要运算逻辑线程启动
+auto_amount_add_per_second_thread = threading.Thread(target=main_operation_logic)  # 逻辑线程启动
 auto_amount_add_per_second_thread.start()
 
 upgrade_price_thread = threading.Thread(target=upgrade_price_logic)
@@ -1507,6 +1390,27 @@ progress_bar_thread.start()
 
 achievement_thread = threading.Thread(target=achievement_logic)
 achievement_thread.start()
+
+##### 左侧框架 #####
+
+frame_left = tk.Frame(root, padx=30)
+frame_left.grid(row=1, column=1, rowspan=3)
+
+apple_amount_entry = tk.Entry(frame_left, justify='center', font=("", "14"), width=16)  # 左侧信息栏
+apple_amount_entry.pack()
+apple_per_click_entry = tk.Entry(frame_left, width=23)
+apple_per_click_entry.pack()
+apple_per_second_entry = tk.Entry(frame_left, width=23)
+apple_per_second_entry.pack()
+apple_amount_entry.after(recursion_time, apple_amount_entry_update)
+
+apple_img = tk.PhotoImage(file="./assets/app.png")
+
+button_click = tk.Button(frame_left,width=160, height=160, image=apple_img, 
+                         cursor='hand2', overrelief='sunken', command=click_button_clicked)  # 苹果点击按钮
+button_click.pack()
+
+##### 中间框架 #####
 
 frame_button = tk.Frame(root)
 frame_button.grid(row=1, column=2)
@@ -1566,31 +1470,10 @@ label_13 = tk.Label(frame_button, text="回到过去，前往将来，占领时�
 label_13.grid(row=13, column=2)
 label_14 = tk.Label(frame_button, text="把宇宙中的反物质等价交换凝聚为苹果！")
 label_14.grid(row=14, column=2)
-label_15 = tk.Label(frame_button, text="人生苦短，最终你用 Python 让你的苹果之路走向无尽！")
+label_15 = tk.Label(frame_button, text="     "+"人生苦短，最终你用 Python 让你的苹果之路走向无尽！"+"     ")
 label_15.grid(row=15, column=2)
 
-frame_left = tk.Frame(root, padx=30)
-frame_left.grid(row=1, column=1, rowspan=3)
-
-apple_amount_entry = tk.Entry(frame_left, justify='center', font=("", "14"), width=16)  # 左侧信息栏
-apple_amount_entry.pack()
-apple_amount_entry.after(10, apple_amount_entry_update)
-
-apple_per_click_entry = tk.Entry(frame_left, width=23)
-apple_per_click_entry.pack()
-apple_per_click_entry.after(300, apple_per_click_entry_update)
-
-apple_per_second_entry = tk.Entry(frame_left, width=23)
-apple_per_second_entry.pack()
-apple_per_second_entry.after(300, apple_per_second_entry_update)
-
-apple_img = tk.PhotoImage(file="./assets/app.png")
-
-button_click = tk.Button(frame_left,width=160, height=160, image=apple_img, 
-                         cursor='hand2', overrelief='sunken', command=click_button_clicked)  # 苹果点击按钮
-button_click.pack()
-
-information_label_column_1 = tk.Label(frame_button, text="建筑")  # 顶部
+information_label_column_1 = tk.Label(frame_button, text="建筑")  # 栏目标题
 information_label_column_1.grid(row=1, column=1, pady=2)
 information_label_column_2 = tk.Label(frame_button, text="建筑简介")
 information_label_column_2.grid(row=1, column=2, pady=2)
@@ -1689,105 +1572,84 @@ entry_information_number_145 = tk.Entry(frame_button, width=12)
 entry_information_number_145.grid(row=14, column=5)
 entry_information_number_155 = tk.Entry(frame_button, width=12)
 entry_information_number_155.grid(row=15, column=5)
-entry_information_number_155.after(300, entry_information_number_upgrade)
-
-frame_upgrade = tk.Frame(root)
-frame_upgrade.grid(row=2, column=2)
-
-statistics_text_label = tk.Label(frame_upgrade, text="统计信息")  # 统计信息框
-statistics_text_label.grid(row=1, column=1, pady=2)
-
-statistics_text_label = tk.Label(frame_upgrade, text="升级")
-statistics_text_label.grid(row=1, column=3, columnspan=2, pady=2, padx=100)
-
-statistics_text = tk.Text(frame_upgrade, height=8, width=40, font=("", 11))
-statistics_text.grid(row=2, column=1, rowspan=10)
-statistics_text.after(300, statistics_text_upgrade)
-
-statistics_button_2 = tk.Button(frame_upgrade, text="升级..", width=10, height=2,
-                            cursor='hand2', overrelief='sunken', command=upgrade_button_clicked)
-statistics_button_2.grid(row=2, column=3, rowspan=2, sticky='e')
-
-statistics_button_entry = tk.Entry(frame_upgrade)
-statistics_button_entry.grid(row=2, column=4)
-statistics_button_entry.after(300, statistics_button_entry_update)
-
-statistics_button_entry_price = tk.Entry(frame_upgrade)
-statistics_button_entry_price.grid(row=3, column=4, sticky='n')
-statistics_button_entry_price.after(300, statistics_button_entry_price_update)
-
-def time_entry_update():
-    time_entry.delete(0, "end")
-    time_entry.insert(0, time.asctime(time.localtime(time.time())))
-    time_entry.after(300, time_entry_update)
-
-time_entry = tk.Entry(frame_upgrade,justify='center',width=30,borderwidth=0)
-time_entry.grid(row=4,column=3,columnspan=2,padx=10)
-time_entry.after(300,time_entry_update)
-
-frame_bottom = tk.Frame(root)
-frame_bottom.grid(row=3, column=1, columnspan=2)
-
-level_progress_label_left = tk.Entry(frame_bottom, width=7, borderwidth=1, justify='center')  # 等级进度条
-level_progress_label_left.grid(row=1, column=0)
-level_progress_label_left.after(300, level_progress_label_left_update)
-
-level_progress_bar = tk.ttk.Progressbar(frame_bottom, length=300, orient='horizontal', mode='determinate')
-level_progress_bar.grid(row=1, column=1)
-level_progress_bar.after(300, level_progress_bar_update)
-
-level_progress_label_right = tk.Entry(frame_bottom, width=7, borderwidth=1, justify='center')
-level_progress_label_right.grid(row=1, column=2)
-level_progress_label_right.after(300, level_progress_label_right_update)
+entry_information_number_155.after(recursion_time, entry_information_number_upgrade)
 
 achievements_information_text = tk.Text(frame_button, width=45, height=31)  # 成就框
 achievements_information_text.grid(row=2, column=6, rowspan=13,columnspan=2)
 
 achevement_num_all = 85
 
-def achievement_progress_bar_update():
-    achievement_get_num = achievement_1_get + achievement_2_get + achievement_3_get + achievement_4_get + achievement_5_get + achievement_6_get + achievement_7_get + achievement_8_get + achievement_9_get + achievement_10_get + achievement_11_get + achievement_12_get + achievement_13_get + achievement_14_get + achievement_15_get + achievement_16_get + achievement_17_get + achievement_18_get + achievement_19_get + achievement_20_get + achievement_21_get + achievement_22_get + achievement_23_get + achievement_24_get + achievement_25_get + achievement_26_get + achievement_27_get + achievement_28_get + achievement_29_get + achievement_30_get + achievement_31_get + achievement_32_get + achievement_33_get + achievement_34_get + achievement_35_get
-    achievement_progress_bar['value'] = achievement_get_num
-    achievement_progress_bar.after(300,achievement_progress_bar_update)
-
-def achievement_progress_entry_update():
-    achievement_get_num = achievement_1_get + achievement_2_get + achievement_3_get + achievement_4_get + achievement_5_get + achievement_6_get + achievement_7_get + achievement_8_get + achievement_9_get + achievement_10_get + achievement_11_get + achievement_12_get + achievement_13_get + achievement_14_get + achievement_15_get + achievement_16_get + achievement_17_get + achievement_18_get + achievement_19_get + achievement_20_get + achievement_21_get + achievement_22_get + achievement_23_get + achievement_24_get + achievement_25_get + achievement_26_get + achievement_27_get + achievement_28_get + achievement_29_get + achievement_30_get + achievement_31_get + achievement_32_get + achievement_33_get + achievement_34_get + achievement_35_get
-    achievement_progress_entry.delete(0, "end")
-    achievement_progress_entry.insert(0, str(achievement_get_num) + "/" + str(achevement_num_all))
-    achievement_progress_entry.after(500, achievement_progress_entry_update)
-
-achievement_progress_bar = tk.ttk.Progressbar(frame_button, length=300,maximum=achevement_num_all, orient='horizontal', mode='determinate')
+achievement_progress_bar = tk.ttk.Progressbar(frame_button, length=300, maximum=achevement_num_all, orient='horizontal', mode='determinate')
 achievement_progress_bar.grid(row=15, column=6)
-achievement_progress_bar.after(500, achievement_progress_bar_update)
-
 achievement_progress_entry = tk.Entry(frame_button,width=5)
 achievement_progress_entry.grid(row=15, column=7)
-achievement_progress_entry.after(500,achievement_progress_entry_update)
+achievement_progress_entry.after(recursion_time, achievement_progress_update)
+
+##### 下侧框架 #####
+
+frame_information = tk.Frame(root)
+frame_information.grid(row=2, column=2)
+
+statistics_text_label = tk.Label(frame_information, text="统计信息")  # 统计信息框
+statistics_text_label.grid(row=1, column=1, pady=2)
+statistics_text_label = tk.Label(frame_information, text="升级")
+statistics_text_label.grid(row=1, column=3, columnspan=2, pady=2, padx=100)
+statistics_text = tk.Text(frame_information, height=8, width=40, font=("", 11))
+statistics_text.grid(row=2, column=1, rowspan=10)
+statistics_text.after(recursion_time, statistics_text_upgrade)
+
+upgrade_button_2 = tk.Button(frame_information, text="升级..", width=10, height=2,
+                            cursor='hand2', overrelief='sunken', command=upgrade_button_clicked)
+upgrade_button_2.grid(row=2, column=3, rowspan=2, sticky='e')
+upgrade_button_entry = tk.Entry(frame_information)
+upgrade_button_entry.grid(row=2, column=4)
+upgrade_button_entry_price = tk.Entry(frame_information)
+upgrade_button_entry_price.grid(row=3, column=4, sticky='n')
+upgrade_button_entry.after(recursion_time, upgrade_button_entry_update)
+
+time_entry = tk.Entry(frame_information,justify='center',width=30,borderwidth=0)
+time_entry.grid(row=4,column=3,columnspan=2,padx=10)
+time_entry.after(300,time_entry_update)
+
+##### 底部框架 #####
+
+frame_bottom = tk.Frame(root)
+frame_bottom.grid(row=3, column=1, columnspan=2)
+
+level_progress_label_left = tk.Entry(frame_bottom, width=7, borderwidth=1, justify='center')  # 等级进度条
+level_progress_label_left.grid(row=1, column=0)
+level_progress_label_right = tk.Entry(frame_bottom, width=7, borderwidth=1, justify='center')
+level_progress_label_right.grid(row=1, column=2)
+level_progress_bar = tk.ttk.Progressbar(frame_bottom, length=300, orient='horizontal', mode='determinate')
+level_progress_bar.grid(row=1, column=1)
+level_progress_bar.after(recursion_time, level_progress_bar_update)
 
 entry_information_information = tk.Entry(frame_bottom, width=80, justify='center')
 entry_information_information.grid(row=1, column=4, ipady=1, pady=5, padx=50)
-entry_information_information.after(300, entry_information_information_upgrade)
+entry_information_information.after(recursion_time, entry_information_information_upgrade)
 
-frame_bottom_left = tk.Frame(frame_bottom)
-frame_bottom_left.grid(row=1, column=11,columnspan=2)
+##### 底部按钮框架 #####
 
-bottom_button_download = tk.Button(frame_bottom_left, text="导出存档..", width=10, height=1, pady=3,
-                                   cursor='hand2', overrelief='sunken', command=window_download)  # 底部按钮
+frame_buttons = tk.Frame(frame_bottom)
+frame_buttons.grid(row=1, column=11,columnspan=2)
+
+bottom_button_download = tk.Button(frame_buttons, text="导出存档..", width=10, height=1, pady=3,
+                                   cursor='hand2', overrelief='sunken', command=window_download)
 bottom_button_download.grid(row=1, column=2, sticky='w')
 
-blank_a = tk.Label(frame_bottom_left, text=" ")
-blank_a.grid(row=1, column=3)
+blank(frame_buttons,1,3)
 
-bottom_button_upload = tk.Button(frame_bottom_left, text="导入存档..", width=10, height=1, pady=3,
+bottom_button_upload = tk.Button(frame_buttons, text="导入存档..", width=10, height=1, pady=3,
                                  cursor='hand2', overrelief='sunken', command=window_upload)
 bottom_button_upload.grid(row=1, column=4, sticky='w')
 
-blank_b = tk.Label(frame_bottom_left, text=" ")
-blank_b.grid(row=1, column=5)
+blank(frame_buttons,1,5)
 
-bottom_button_about = tk.Button(frame_bottom_left, text="退出..", width=8, height=1, pady=3,
+bottom_button_about = tk.Button(frame_buttons, text="退出..", width=8, height=1, pady=3,
                                 cursor='hand2', overrelief='sunken', command=root_close)
 bottom_button_about.grid(row=1, column=6, sticky='w')
+
+##### 工具栏 #####
 
 menubar = tk.Menu(root, bg="red")
 root.config(menu=menubar)
@@ -1795,76 +1657,6 @@ root.config(menu=menubar)
 operationMenu = tk.Menu(menubar,tearoff=0)
 menubar.add_cascade(label="关于..", menu=operationMenu)
 operationMenu.add_command(label="关于", command=window_about)
-
-def window_cheat():  # 存档下载窗口
-    click_sound()
-    rootcheat = tk.Tk()
-    rootcheat.title("作弊传送门")
-    # noinspection PyTypeChecker
-    rootcheat.resizable(0, 0)
-
-    cheat_label = tk.Label(rootcheat, text="作弊而得的苹果尝起来很难吃，不是吗？")
-    cheat_label.grid(row=1,column=1,columnspan=3)
-
-    cheat_entry = tk.Entry(rootcheat, width=100, justify='center')
-    cheat_entry.grid(row=2,column=1,columnspan=3)
-
-    def cheat_process():
-        click_sound()
-        global apple_amount, apple_amount_total
-        cheat = cheat_entry.get().split(" ")
-
-        if cheat[0] == '/earn':
-            if cheat[1] == 'apple':
-                try:
-                    cheat_add = int(cheat[2])
-                    apple_amount += cheat_add
-                    apple_amount_total += cheat_add
-                except:
-                    pass
-
-    save_cheat_button = tk.Button(rootcheat, width=10, text="加载..",
-                                cursor='hand2', overrelief='sunken',command=cheat_process)
-    save_cheat_button.grid(row=3,column=1)
-
-    blank_cheat = tk.Label(frame_bottom_left, text=" ")
-    blank_cheat.grid(row=3,column=2)
-
-    def cheat_close():
-        click_sound()
-        rootcheat.destroy()
-
-    close_cheat_button = tk.Button(rootcheat, width=10, text="关闭..", 
-                                cursor='hand2', overrelief='sunken', command=cheat_close)
-    close_cheat_button.grid(row=3,column=3)
-
-    rootcheat.mainloop()
-
-def window_settings():
-    rootsettings = tk.Tk()
-    rootsettings.title("游戏设置")
-    # noinspection PyTypeChecker
-    rootsettings.resizable(0, 0)
-
-    set_frame_1 = tk.Frame(rootsettings)
-    set_frame_1.pack()
-
-    set_1_label = tk.Label(set_frame_1,text="音效")
-    set_1_label.grid(row=1,column=1)
-
-    def musical_on():
-        is_musical_on: int = 1
-
-    def musical_off():
-        is_musical_on: int = 0
-
-    r = tk.StringVar()
-
-    radio = tk.Radiobutton(set_frame_1,variable=r, value='1', text='Radio1')
-    radio.grid(row=1,column=2)
-
-    radio = tk.Radiobutton(set_frame_1, variable=r, value='2', text='Radio2')
-    radio.grid(row=1,column=3)
 
 operationMenu.add_command(label="设置", command=window_settings)
 operationMenu.add_command(label="传送门", command=window_cheat)
