@@ -1318,6 +1318,18 @@ def window_about():  # 关于窗口
     rootabout.title("关于：苹果点点乐 Apple Clicker©")
     rootabout.resizable(0, 0)
 
+    def SaveLastClickPos(event):  # 窗口拖动
+        global lastClickX, lastClickY
+        lastClickX = event.x
+        lastClickY = event.y
+
+    def Dragging(event):
+        x, y = event.x - lastClickX + rootabout.winfo_x(), event.y - lastClickY + rootabout.winfo_y()
+        rootabout.geometry("+%s+%s" % (x , y))
+
+    rootabout.bind('<Button-1>', SaveLastClickPos)
+    rootabout.bind('<B1-Motion>', Dragging)
+
     frame_icon = tk.Frame(rootabout,padx=50)
     frame_icon.grid(row=0,column=0)
 
@@ -1440,6 +1452,18 @@ def window_settings():  # 设置窗口
     rootsettings = tk.Tk()
     rootsettings.title("游戏设置")
     rootsettings.resizable(0, 0)
+
+    def SaveLastClickPos(event):  # 窗口拖动
+        global lastClickX, lastClickY
+        lastClickX = event.x
+        lastClickY = event.y
+
+    def Dragging(event):
+        x, y = event.x - lastClickX + rootsettings.winfo_x(), event.y - lastClickY + rootsettings.winfo_y()
+        root.geometry("+%s+%s" % (x , y))
+
+    rootsettings.bind('<Button-1>', SaveLastClickPos)
+    rootsettings.bind('<B1-Motion>', Dragging)
 
     blank(rootsettings,0,0)
     
