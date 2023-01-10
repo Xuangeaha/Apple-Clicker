@@ -8,7 +8,7 @@ import tkinter as tk
 import ttkbootstrap as ttk
 from win10toast import ToastNotifier
 
-ver: str = 'beta0.7.0'  # 版本号
+ver: str = 'beta0.8.0'  # 版本号
 
 ########## 初始化定义 ##########
 
