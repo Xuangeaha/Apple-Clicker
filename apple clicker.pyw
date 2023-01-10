@@ -292,13 +292,13 @@ news_all = ['你想种苹果，但没人捧\n场。',  # 新闻
             '方圆几里内的人都在讨\n论你的苹果。',
             '你的苹果在整个镇上都\n有了名气！',
             '孩子们都被你的苹果吸\n引了过来。',
+            '新闻： 男子抢劫银行，\n只为买苹果。',
+            '你的苹果卖出了很多钱。',
+            '你的苹果有了自己的专\n题网站。',
             '“我们是优秀的老爷爷。\n”——老爷爷',
             '“乖来亲爷爷一下。”——\n老爷爷',
-            '新闻： 男子抢劫银行，\n只为买苹果。',
-            '你的苹果卖出了很多钱。\n',
-            '你的苹果有了自己的专\n题网站。',
             '新闻：科学家说化石记\n录表明寒武纪大爆发时\n有苹果基的生物。',
-            '一家本地电视台对你的\n苹果进行了长达10分钟\n的新闻报导。你是成功人士了！（成功奖励是：一只苹果。）',
+            '一家本地电视台对你的\n苹果进行了长达10分钟\n的新闻报导。你是成功人士了！\n（成功奖励是：一只苹果。）',
             '新闻： 转基因苹果引发\n果农罢工！',
             '新闻： 苹果工厂与全球\n变暖有关！',
             '你的苹果已经畅销海外。\n',
@@ -314,11 +314,11 @@ news_all = ['你想种苹果，但没人捧\n场。',  # 新闻
             '“我们会再次升起。” \n——老爷爷',
             '“荒芜吧” ——老爷爷',
             '新闻：时光机被用于非\n法时间旅行！',
-            '新闻：“不得不说，苹果\n这东西确实有点不详” \n某些迷糊的白痴如此\n表示。',
+            '新闻：“不得不说，苹果\n这东西确实有点不详” \n某些迷糊的白痴如此表示。',
             '“仅仅是一个挫折。” ——\n老爷爷',
             '“侵蚀吧” ——老爷爷',
             '现在有专门为你的苹果\n而开设的博物馆了。',
-            '新闻：太空旅游业的蓬\n勃发展为遥远的行星吸引\n了更多无聊的百万富\n翁！ ',
+            '新闻：太空旅游业的蓬\n勃发展为遥远的行星吸引\n了更多无聊的百万富翁！ ',
             '“痛苦吧” ——老爷爷',
             '国际上为你的苹果设立\n了一个纪念日。',
             '新闻：喜剧演员因不相\n关的消化不良而被迫取消\n苹果常规。',
@@ -431,37 +431,428 @@ def get_news():
     news = []
     if apple_amount_total == 0: 
         for news_num in range(0,1): news.append(news_all[news_num])
-    elif apple_amount_total > 0: 
-        for news_num in range(2,4): news.append(news_all[news_num])
-    elif apple_amount_total > 30: 
-        for news_num in range(2,8): news.append(news_all[news_num])
-    elif apple_amount_total > 100: 
-        for news_num in range(2,10): news.append(news_all[news_num])
-    elif apple_amount_total > 500: 
-        for news_num in range(5,15): news.append(news_all[news_num])
-    elif apple_amount_total > 1000: 
-        for news_num in range(5,20): news.append(news_all[news_num])
-    elif apple_amount_total > 3000: 
-        for news_num in range(5,25): news.append(news_all[news_num])
-    elif apple_amount_total > 5000: 
-        for news_num in range(8,30): news.append(news_all[news_num])
-    elif apple_amount_total > 8000: 
-        for news_num in range(8,35): news.append(news_all[news_num])
-    elif apple_amount_total > 10000: 
-        for news_num in range(8,40): news.append(news_all[news_num])
-    elif apple_amount_total > 30000: 
-        for news_num in range(8,45): news.append(news_all[news_num])
-    elif apple_amount_total > 50000: 
-        for news_num in range(0,50): news.append(news_all[news_num])
-    elif apple_amount_total > 80000: 
-        for news_num in range(0,55): news.append(news_all[news_num])
-    elif apple_amount_total > 100000: 
-        for news_num in range(0,60): news.append(news_all[news_num])
-    elif apple_amount_total > 500000: 
-        for news_num in range(0,65): news.append(news_all[news_num])
-    elif apple_amount_total > 1000000: 
-        for news_num in range(0,70): news.append(news_all[news_num])
+    elif apple_amount_total < 30: 
+        for news_num in range(1,3): news.append(news_all[news_num])
+    elif apple_amount_total < 100: 
+        for news_num in range(1,4): news.append(news_all[news_num])
+    elif apple_amount_total < 300: 
+        for news_num in range(1,6): news.append(news_all[news_num])
+    elif apple_amount_total < 700: 
+        for news_num in range(6,8): news.append(news_all[news_num])
+    elif apple_amount_total < 1500: 
+        for news_num in range(6,10): news.append(news_all[news_num])
+    elif apple_amount_total < 3000: 
+        for news_num in range(6,12): news.append(news_all[news_num])
+    elif apple_amount_total < 5000: 
+        for news_num in range(13,30): news.append(news_all[news_num])
+    elif apple_amount_total < 8000: 
+        for news_num in range(13,35): news.append(news_all[news_num])
+    elif apple_amount_total < 10000: 
+        for news_num in range(13,40): news.append(news_all[news_num])
+    elif apple_amount_total < 30000: 
+        for news_num in range(13,45): news.append(news_all[news_num])
+    elif apple_amount_total < 50000: 
+        for news_num in range(13,50): news.append(news_all[news_num])
+    elif apple_amount_total < 80000: 
+        for news_num in range(13,55): news.append(news_all[news_num])
+    elif apple_amount_total < 100000: 
+        for news_num in range(13,60): news.append(news_all[news_num])
+    elif apple_amount_total < 500000: 
+        for news_num in range(13,65): news.append(news_all[news_num])
+    elif apple_amount_total < 1000000: 
+        for news_num in range(13,70): news.append(news_all[news_num])
     return news
+
+########## 按钮点击运算 ##########
+
+def click_button_clicked():  # 苹果按钮点击运算
+    global apple_amount, apple_amount_total, click_time
+    pick_apple()
+    apple_amount += add_per_click
+    apple_amount_total += add_per_click
+    click_time += 1
+
+def sponsor_button_clicked():  # 建筑购买运算
+    global apple_amount, price_sponsor, sponsor_amount, information, button_clicked_amount_2
+    if (apple_amount - price_sponsor) < 0:
+        information = "没有足够的苹果。你需要至少 " + str(price_sponsor) + " 个苹果 以购买 鼠标指针。"
+        unsuccessful_bought_sound()
+    else:
+        information = "你购买了 1 个 鼠标指针。"
+        successful_bought_sound()
+        apple_amount -= price_sponsor
+        button_clicked_amount_2 += 1
+        price_sponsor += button_clicked_amount_2
+        sponsor_amount += 1
+
+def seed_button_clicked():
+    global apple_amount, price_seed, seed_amount, information, button_clicked_amount_3
+    if (apple_amount - price_seed) < 0:
+        information = "没有足够的苹果。你需要至少 " + str(price_seed) + " 个苹果 以购买 果篮。"
+        unsuccessful_bought_sound()
+    else:
+        information = "你购买了 1 个 果篮。"
+        successful_bought_sound()
+        apple_amount -= price_seed
+        button_clicked_amount_3 += 1
+        price_seed += button_clicked_amount_3 * 2
+        seed_amount += 1
+
+def basket_button_clicked():
+    global apple_amount, price_basket, basket_amount, information, button_clicked_amount_4
+    if (apple_amount - price_basket) < 0:
+        information = "没有足够的苹果。你需要至少 " + str(price_basket) + " 个苹果 以购买 老爷爷。"
+        unsuccessful_bought_sound()
+    else:
+        information = "你购买了 1 个 老爷爷。"
+        successful_bought_sound()
+        apple_amount -= price_basket
+        button_clicked_amount_4 += 1
+        price_basket += button_clicked_amount_4 * 3
+        basket_amount += 1
+
+def tree_button_clicked():
+    global apple_amount, price_tree, tree_amount, information, button_clicked_amount_5
+    if (apple_amount - price_tree) < 0:
+        information = "没有足够的苹果。你需要至少 " + str(price_tree) + " 个苹果 以购买 苹果树。"
+        unsuccessful_bought_sound()
+    else:
+        information = "你购买了 1 个 苹果树。"
+        successful_bought_sound()
+        apple_amount -= price_tree
+        button_clicked_amount_5 += 1
+        price_tree += button_clicked_amount_5 * 4
+        tree_amount += 1
+
+def garden_button_clicked():
+    global apple_amount, price_garden, garden_amount, information, button_clicked_amount_6
+    if (apple_amount - price_garden) < 0:
+        information = "没有足够的苹果。你需要至少 " + str(price_garden) + " 个苹果 以购买 果园。"
+        unsuccessful_bought_sound()
+    else:
+        information = "你购买了 1 个 果园。"
+        successful_bought_sound()
+        apple_amount -= price_garden
+        button_clicked_amount_6 += 1
+        price_garden += button_clicked_amount_6 * 5
+        garden_amount += 1
+
+def town_button_clicked():
+    global apple_amount, price_town, town_amount, information, button_clicked_amount_7
+    if (apple_amount - price_town) < 0:
+        information = "没有足够的苹果。你需要至少 " + str(price_town) + " 个苹果 以购买 水果镇。"
+        unsuccessful_bought_sound()
+    else:
+        information = "你购买了 1 个 水果镇。"
+        successful_bought_sound()
+        apple_amount -= price_town
+        button_clicked_amount_7 += 1
+        price_town += button_clicked_amount_7 * 6
+        town_amount += 1
+
+def country_button_clicked():
+    global apple_amount, price_country, country_amount, information, button_clicked_amount_8
+    if (apple_amount - price_country) < 0:
+        information = "没有足够的苹果。你需要至少 " + str(price_country) + " 个苹果 以购买 苹果工厂。"
+        unsuccessful_bought_sound()
+    else:
+        information = "你购买了 1 个 苹果工厂。"
+        successful_bought_sound()
+        apple_amount -= price_country
+        button_clicked_amount_8 += 1
+        price_country += button_clicked_amount_8 * 7
+        country_amount += 1
+
+def planet_button_clicked():
+    global apple_amount, price_planet, planet_amount, information, button_clicked_amount_9
+    if (apple_amount - price_planet) < 0:
+        information = "没有足够的苹果。你需要至少 " + str(price_planet) + " 个苹果 以购买 水果银行。"
+        unsuccessful_bought_sound()
+    else:
+        information = "你购买了 1 个 水果银行。"
+        successful_bought_sound()
+        apple_amount -= price_planet
+        button_clicked_amount_9 += 1
+        price_planet += button_clicked_amount_9 * 8
+        planet_amount += 1
+
+def wizardtower_button_clicked():
+    global apple_amount, price_wizardtower, wizardtower_amount, information, button_clicked_amount_10
+    if (apple_amount - price_wizardtower) < 0:
+        information = "没有足够的苹果。你需要至少 " + str(price_wizardtower) + " 个苹果 以购买 魔法巫师塔。"
+        unsuccessful_bought_sound()
+    else:
+        information = "你购买了 1 个 魔法巫师塔。"
+        successful_bought_sound()
+        apple_amount -= price_wizardtower
+        button_clicked_amount_10 += 1
+        price_wizardtower += button_clicked_amount_10 * 9
+        wizardtower_amount += 1
+
+def plane_button_clicked():
+    global apple_amount, price_plane, plane_amount, information, button_clicked_amount_11
+    if (apple_amount - price_plane) < 0:
+        information = "没有足够的苹果。你需要至少 " + str(price_plane) + " 个苹果 以购买 宇宙飞船。"
+        unsuccessful_bought_sound()
+    else:
+        information = "你购买了 1 个 宇宙飞船。"
+        successful_bought_sound()
+        apple_amount -= price_plane
+        button_clicked_amount_11 += 1
+        price_plane += button_clicked_amount_11 * 10
+        plane_amount += 1
+
+def hole_button_clicked():
+    global apple_amount, price_hole, hole_amount, information, button_clicked_amount_12
+    if (apple_amount - price_hole) < 0:
+        information = "没有足够的苹果。你需要至少 " + str(price_hole) + " 个苹果 以购买 虫洞。"
+        unsuccessful_bought_sound()
+    else:
+        information = "你购买了 1 个 虫洞。"
+        successful_bought_sound()
+        apple_amount -= price_hole
+        button_clicked_amount_12 += 1
+        price_hole += button_clicked_amount_12 * 11
+        hole_amount += 1
+
+def timemachine_button_clicked():
+    global apple_amount, price_timemachine, timemachine_amount, information, button_clicked_amount_13
+    if (apple_amount - price_timemachine) < 0:
+        information = "没有足够的苹果。你需要至少 " + str(price_timemachine) + " 个苹果 以购买 时光机。"
+        unsuccessful_bought_sound()
+    else:
+        information = "你购买了 1 个 时光机。"
+        successful_bought_sound()
+        apple_amount -= price_timemachine
+        button_clicked_amount_13 += 1
+        price_timemachine += button_clicked_amount_13 * 12
+        timemachine_amount += 1
+
+def glass_button_clicked():
+    global apple_amount, price_glass, glass_amount, information, button_clicked_amount_14
+    if (apple_amount - price_glass) < 0:
+        information = "没有足够的苹果。你需要至少 " + str(price_glass) + " 个苹果 以购买 三棱镜。"
+        unsuccessful_bought_sound()
+    else:
+        information = "你购买了 1 个 三棱镜。"
+        successful_bought_sound()
+        apple_amount -= price_glass
+        button_clicked_amount_14 += 1
+        price_glass += button_clicked_amount_14 * 13
+        glass_amount += 1
+
+def js_button_clicked():
+    global apple_amount, price_js, js_amount, information, button_clicked_amount_15
+    if (apple_amount - price_js) < 0:
+        information = "没有足够的苹果。你需要至少 " + str(price_js) + " 个苹果 以购买 Python 控制台。"
+        unsuccessful_bought_sound()
+    else:
+        information = "你购买了 1 个 Python 控制台。"
+        successful_bought_sound()
+        apple_amount -= price_js
+        button_clicked_amount_15 += 1
+        price_js += button_clicked_amount_15 * 14
+        js_amount += 1
+
+def upgrade_button_clicked():  # 升级运算
+    global apple_amount, information, upgrade_button_clicked_time
+    if (apple_amount - upgrade_price) < 0:
+        unsuccessful_bought_sound()
+        information = "没有足够的苹果。你需要至少 " + str(int(upgrade_price)) + " 个苹果以升级。"
+    else:
+        successful_bought_sound()
+        apple_amount -= upgrade_price
+        upgrade_button_clicked_time += 1
+        information = "你升级至了 Level " + str(upgrade_button_clicked_time + 1) + "！"
+
+def refresh_newspaper():  # 报纸刷新
+    global newspaper
+    newspaper['text'] = "报纸\n\n"+get_news()[random.randint(0,len(get_news())-1)]
+
+########## 递归显示运算 ##########
+
+def apple_amount_entry_update():  # 左侧信息栏显示递归
+    global apple_amount, add_per_click, auto_add_per_second
+    apple_amount_entry.delete(0, "end")
+    apple_amount_entry.insert(0, str(apple_amount))
+    apple_per_click_entry.delete(0, "end")
+    apple_per_click_entry.insert(0, ("+ " + str(add_per_click) + " / click"))
+    apple_per_second_entry.delete(0, "end")
+    apple_per_second_entry.insert(0, ("+ " + str(auto_add_per_second) + " / s"))
+    apple_amount_entry.after(100, apple_amount_entry_update)
+
+def entry_information_number_upgrade():  # 信息网格显示递归
+    global sponsor_amount, seed_amount, basket_amount, tree_amount, garden_amount
+    global town_amount, country_amount, planet_amount, wizardtower_amount, plane_amount
+    global hole_amount, timemachine_amount, glass_amount, js_amount
+    entry_information_number_23.delete(0, "end")
+    entry_information_number_23.insert(0, str(sponsor_amount))
+    entry_information_number_33.delete(0, "end")
+    entry_information_number_33.insert(0, str(seed_amount))
+    entry_information_number_43.delete(0, "end")
+    entry_information_number_43.insert(0, str(basket_amount))
+    entry_information_number_53.delete(0, "end")
+    entry_information_number_53.insert(0, str(tree_amount))
+    entry_information_number_63.delete(0, "end")
+    entry_information_number_63.insert(0, str(garden_amount))
+    entry_information_number_73.delete(0, "end")
+    entry_information_number_73.insert(0, str(town_amount))
+    entry_information_number_83.delete(0, "end")
+    entry_information_number_83.insert(0, str(country_amount))
+    entry_information_number_93.delete(0, "end")
+    entry_information_number_93.insert(0, str(planet_amount))
+    entry_information_number_103.delete(0, "end")
+    entry_information_number_103.insert(0, str(wizardtower_amount))
+    entry_information_number_113.delete(0, "end")
+    entry_information_number_113.insert(0, str(plane_amount))
+    entry_information_number_123.delete(0, "end")
+    entry_information_number_123.insert(0, str(hole_amount))
+    entry_information_number_133.delete(0, "end")
+    entry_information_number_133.insert(0, str(timemachine_amount))
+    entry_information_number_143.delete(0, "end")
+    entry_information_number_143.insert(0, str(glass_amount))
+    entry_information_number_153.delete(0, "end")
+    entry_information_number_153.insert(0, str(js_amount))
+
+    global price_sponsor, price_seed, price_basket, price_tree, price_garden
+    global price_town, price_country, price_planet, price_wizardtower, price_plane
+    global price_hole, price_timemachine, price_glass, price_js
+    entry_information_number_24.delete(0, "end")
+    entry_information_number_24.insert(0, str(price_sponsor))
+    entry_information_number_34.delete(0, "end")
+    entry_information_number_34.insert(0, str(price_seed))
+    entry_information_number_44.delete(0, "end")
+    entry_information_number_44.insert(0, str(price_basket))
+    entry_information_number_54.delete(0, "end")
+    entry_information_number_54.insert(0, str(price_tree))
+    entry_information_number_64.delete(0, "end")
+    entry_information_number_64.insert(0, str(price_garden))
+    entry_information_number_74.delete(0, "end")
+    entry_information_number_74.insert(0, str(price_town))
+    entry_information_number_84.delete(0, "end")
+    entry_information_number_84.insert(0, str(price_country))
+    entry_information_number_94.delete(0, "end")
+    entry_information_number_94.insert(0, str(price_planet))
+    entry_information_number_104.delete(0, "end")
+    entry_information_number_104.insert(0, str(price_wizardtower))
+    entry_information_number_114.delete(0, "end")
+    entry_information_number_114.insert(0, str(price_plane))
+    entry_information_number_124.delete(0, "end")
+    entry_information_number_124.insert(0, str(price_hole))
+    entry_information_number_134.delete(0, "end")
+    entry_information_number_134.insert(0, str(price_timemachine))
+    entry_information_number_144.delete(0, "end")
+    entry_information_number_144.insert(0, str(price_glass))
+    entry_information_number_154.delete(0, "end")
+    entry_information_number_154.insert(0, str(price_js))
+
+    global value_sponsor, value_seed, value_basket, value_tree, value_garden
+    global value_hole, value_timemachine, value_glass, value_js
+    global value_town, value_country, value_planet, value_wizardtower, value_plane
+    entry_information_number_30.delete(0, "end")
+    entry_information_number_30.insert(0, ("+" + str(value_sponsor * sponsor_amount)) + " / s")
+    entry_information_number_35.delete(0, "end")
+    entry_information_number_35.insert(0, ("+" + str(value_seed * seed_amount)) + " / s")
+    entry_information_number_45.delete(0, "end")
+    entry_information_number_45.insert(0, ("+" + str(value_basket * basket_amount)) + " / s")
+    entry_information_number_55.delete(0, "end")
+    entry_information_number_55.insert(0, ("+" + str(value_tree * tree_amount)) + " / s")
+    entry_information_number_65.delete(0, "end")
+    entry_information_number_65.insert(0, ("+" + str(value_garden * garden_amount)) + " / s")
+    entry_information_number_75.delete(0, "end")
+    entry_information_number_75.insert(0, ("+" + str(value_town * town_amount)) + " / s")
+    entry_information_number_85.delete(0, "end")
+    entry_information_number_85.insert(0, ("+" + str(value_country * country_amount)) + " / s")
+    entry_information_number_95.delete(0, "end")
+    entry_information_number_95.insert(0, ("+" + str(value_planet * planet_amount)) + " / s")
+    entry_information_number_105.delete(0, "end")
+    entry_information_number_105.insert(0, ("+" + str(value_wizardtower * wizardtower_amount)) + " / s")
+    entry_information_number_115.delete(0, "end")
+    entry_information_number_115.insert(0, ("+" + str(value_plane * plane_amount)) + " / s")
+    entry_information_number_130.delete(0, "end")
+    entry_information_number_130.insert(0, ("+" + str(value_hole * hole_amount)) + " / s")
+    entry_information_number_135.delete(0, "end")
+    entry_information_number_135.insert(0, ("+" + str(value_timemachine * timemachine_amount)) + " / s")
+    entry_information_number_145.delete(0, "end")
+    entry_information_number_145.insert(0, ("+" + str(value_glass * glass_amount)) + " / s")
+    entry_information_number_155.delete(0, "end")
+    entry_information_number_155.insert(0, ("+" + str(value_js * js_amount)) + " / s")
+    entry_information_number_155.after(recursion_time, entry_information_number_upgrade)
+
+def entry_information_information_upgrade():  # 信息栏显示递归
+    entry_information_information.delete(0, "end")
+    entry_information_information.insert(0, information)
+    entry_information_information.after(recursion_time, entry_information_information_upgrade)
+
+def statistics_text_upgrade():  # 统计信息显示递归
+    statistics_text.delete(1.0, tk.END)
+    statistics_text.insert("insert", ("现在的苹果数量：" + str(apple_amount) +
+                                      "\n总苹果数量：" + str(apple_amount_total) +
+                                      "\n总建筑数量：" + str(building_amount) +
+                                      "\n点击次数：" + str(click_time)))
+    statistics_text.after(recursion_time, statistics_text_upgrade)
+
+def upgrade_button_entry_update():  # 升级显示递归
+    upgrade_button_entry.delete(0, "end")
+    upgrade_button_entry.insert(0, "Level " + str(upgrade_button_clicked_time + 1) + " 至 Level " + str(upgrade_button_clicked_time + 2))
+    upgrade_button_entry_price.delete(0, "end")
+    upgrade_button_entry_price.insert(0, "价格：" + str(int(upgrade_price)))
+    upgrade_button_entry.after(recursion_time, upgrade_button_entry_update)
+
+def achievement_progress_update():  # 成就进度条显示递归
+    achievement_get_num = (achievement_1_get + achievement_2_get + achievement_3_get + achievement_4_get + achievement_5_get + 
+                          achievement_6_get + achievement_7_get + achievement_8_get + achievement_9_get + achievement_10_get + 
+                          achievement_11_get + achievement_12_get + achievement_13_get + achievement_14_get + achievement_15_get + 
+                          achievement_16_get + achievement_17_get + achievement_18_get + achievement_19_get + achievement_20_get + 
+                          achievement_21_get + achievement_22_get + achievement_23_get + achievement_24_get + achievement_25_get + 
+                          achievement_26_get + achievement_27_get + achievement_28_get + achievement_29_get + achievement_30_get + 
+                          achievement_31_get + achievement_32_get + achievement_33_get + achievement_34_get + achievement_35_get + 
+                          achievement_36_get + achievement_37_get + achievement_38_get + achievement_39_get + achievement_40_get + 
+                          achievement_41_get + achievement_42_get + achievement_43_get + achievement_44_get + achievement_45_get + 
+                          achievement_46_get + achievement_47_get + achievement_48_get + achievement_49_get + achievement_50_get + 
+                          achievement_51_get + achievement_52_get + achievement_53_get + achievement_54_get + achievement_55_get + 
+                          achievement_56_get + achievement_57_get + achievement_58_get + achievement_59_get + achievement_60_get + 
+                          achievement_61_get + achievement_62_get + achievement_63_get + achievement_64_get + achievement_65_get + 
+                          achievement_66_get + achievement_67_get + achievement_68_get + achievement_69_get + achievement_70_get + 
+                          achievement_71_get + achievement_72_get + achievement_73_get + achievement_74_get + achievement_75_get + 
+                          achievement_76_get + achievement_77_get + achievement_78_get + achievement_79_get + achievement_80_get + 
+                          achievement_81_get + achievement_82_get + achievement_83_get + achievement_84_get + achievement_85_get)
+    achievement_progress_bar['value'] = achievement_get_num
+    achievement_progress_entry.delete(0, "end")
+    achievement_progress_entry.insert(0, str(achievement_get_num) + "/" + str(achevement_num_all))
+    achievement_progress_entry.after(recursion_time, achievement_progress_update)
+
+def time_entry_update():  # 时间显示递归
+    time_entry.delete(0, "end")
+    time_entry.insert(0, time.asctime(time.localtime(time.time())))
+    time_entry.after(300, time_entry_update)
+
+def level_progress_bar_update():  # 等级进度条显示递归
+    if level_progress_now == 1: level_progress_bar['maximum'] = level_1; level_progress_bar['value'] = apple_amount_total
+    elif level_progress_now == 2: level_progress_bar['maximum'] = level_2 - level_1; level_progress_bar['value'] = apple_amount_total - level_1
+    elif level_progress_now == 3: level_progress_bar['maximum'] = level_3 - level_2; level_progress_bar['value'] = apple_amount_total - level_2
+    elif level_progress_now == 4: level_progress_bar['maximum'] = level_4 - level_3; level_progress_bar['value'] = apple_amount_total - level_3
+    elif level_progress_now == 5: level_progress_bar['maximum'] = level_5 - level_4; level_progress_bar['value'] = apple_amount_total - level_4
+    elif level_progress_now == 6: level_progress_bar['maximum'] = level_6 - level_5; level_progress_bar['value'] = apple_amount_total - level_5
+    elif level_progress_now == 7: level_progress_bar['maximum'] = level_7 - level_6; level_progress_bar['value'] = apple_amount_total - level_6
+    elif level_progress_now == 8: level_progress_bar['maximum'] = level_8 - level_7; level_progress_bar['value'] = apple_amount_total - level_7
+    elif level_progress_now == 9: level_progress_bar['maximum'] = level_9 - level_8; level_progress_bar['value'] = apple_amount_total - level_8
+    elif level_progress_now == 10: level_progress_bar['maximum'] = level_10 - level_9; level_progress_bar['value'] = apple_amount_total - level_9
+    elif level_progress_now == 11: level_progress_bar['maximum'] = level_11 - level_10; level_progress_bar['value'] = apple_amount_total - level_10
+    elif level_progress_now == 12: level_progress_bar['maximum'] = level_12 - level_11; level_progress_bar['value'] = apple_amount_total - level_11
+    elif level_progress_now == 13: level_progress_bar['maximum'] = level_13 - level_12; level_progress_bar['value'] = apple_amount_total - level_12
+    elif level_progress_now == 14: level_progress_bar['maximum'] = level_14 - level_13; level_progress_bar['value'] = apple_amount_total - level_13
+    elif level_progress_now == 15: level_progress_bar['maximum'] = level_15 - level_14; level_progress_bar['value'] = apple_amount_total - level_14
+    elif level_progress_now == 16: level_progress_bar['maximum'] = level_16 - level_15; level_progress_bar['value'] = apple_amount_total - level_15
+    elif level_progress_now == 17: level_progress_bar['maximum'] = level_17 - level_16; level_progress_bar['value'] = apple_amount_total - level_16
+    elif level_progress_now == 18: level_progress_bar['maximum'] = level_18 - level_17; level_progress_bar['value'] = apple_amount_total - level_17
+    elif level_progress_now == 19: level_progress_bar['maximum'] = level_19 - level_18; level_progress_bar['value'] = apple_amount_total - level_18
+    elif level_progress_now == 20: level_progress_bar['maximum'] = level_20 - level_19; level_progress_bar['value'] = apple_amount_total - level_19
+    level_progress_label_left.delete(0, "end")
+    level_progress_label_left.insert(0, "Level " + str(level_progress_now))
+    level_progress_label_right.delete(0, "end")
+    level_progress_label_right.insert(0, "Level " + str(level_progress_now + 1))
+    level_progress_bar.after(recursion_time, level_progress_bar_update)
 
 ########## 逻辑运算线程 ##########
 
@@ -481,7 +872,7 @@ def main_operation_logic():  # 主要运算逻辑线程
                                    (hole_amount * value_hole) +
                                    (timemachine_amount * value_timemachine) +
                                    (glass_amount * value_glass) +
-                                   (js_amount * value_js)) * pow(1.02, upgrade_button_clicked_time + 1))
+                                   (js_amount * value_js)) * pow(1.03, upgrade_button_clicked_time + 1))
         apple_amount += auto_add_per_second
         apple_amount_total += auto_add_per_second
         add_per_click = int((sponsor_amount * 0.5) + \
@@ -499,15 +890,14 @@ def main_operation_logic():  # 主要运算逻辑线程
                             (glass_amount * 4) + \
                             (js_amount * 5))
         if add_per_click == 0: add_per_click = 1
-        building_amount = sponsor_amount + seed_amount + basket_amount + tree_amount + garden_amount + \
-                          town_amount + country_amount + planet_amount + wizardtower_amount + \
-                          plane_amount + hole_amount + timemachine_amount + glass_amount + js_amount
+        building_amount = (sponsor_amount + seed_amount + basket_amount + tree_amount + garden_amount + 
+                          town_amount + country_amount + planet_amount + wizardtower_amount + 
+                          plane_amount + hole_amount + timemachine_amount + glass_amount + js_amount)
         time.sleep(1)
 
 def upgrade_price_logic():  # 升级价格逻辑线程
     global upgrade_price
-    whaa = 0
-    while whaa == 0:
+    while True:
         upgrade_price = int(200000 * pow(1.2, upgrade_button_clicked_time))
         time.sleep(1)
 
@@ -793,400 +1183,10 @@ def achievement_logic():  # 成就逻辑线程
 
 def newspaper_logic():  # 报纸逻辑线程
     global newspaper
+    time.sleep(1)
     while True:
-        time.sleep(5)
         newspaper['text'] = "报纸\n\n"+get_news()[random.randint(0,len(get_news())-1)]
-
-########## 按钮点击运算 ##########
-
-def click_button_clicked():  # 苹果按钮点击运算
-    global apple_amount, apple_amount_total, click_time
-    pick_apple()
-    apple_amount += add_per_click
-    apple_amount_total += add_per_click
-    click_time += 1
-
-def sponsor_button_clicked():  # 建筑购买运算
-    global apple_amount, price_sponsor, sponsor_amount, information, button_clicked_amount_2
-    if (apple_amount - price_sponsor) < 0:
-        information = "没有足够的苹果。你需要至少 " + str(price_sponsor) + " 个苹果 以购买 鼠标指针。"
-        unsuccessful_bought_sound()
-    else:
-        information = "你购买了 1 个 鼠标指针。"
-        successful_bought_sound()
-        apple_amount -= price_sponsor
-        button_clicked_amount_2 += 1
-        price_sponsor += button_clicked_amount_2
-        sponsor_amount += 1
-
-def seed_button_clicked():
-    global apple_amount, price_seed, seed_amount, information, button_clicked_amount_3
-    if (apple_amount - price_seed) < 0:
-        information = "没有足够的苹果。你需要至少 " + str(price_seed) + " 个苹果 以购买 果篮。"
-        unsuccessful_bought_sound()
-    else:
-        information = "你购买了 1 个 果篮。"
-        successful_bought_sound()
-        apple_amount -= price_seed
-        button_clicked_amount_3 += 1
-        price_seed += button_clicked_amount_3 + 1
-        seed_amount += 1
-
-def basket_button_clicked():
-    global apple_amount, price_basket, basket_amount, information, button_clicked_amount_4
-    if (apple_amount - price_basket) < 0:
-        information = "没有足够的苹果。你需要至少 " + str(price_basket) + " 个苹果 以购买 老爷爷。"
-        unsuccessful_bought_sound()
-    else:
-        information = "你购买了 1 个 老爷爷。"
-        successful_bought_sound()
-        apple_amount -= price_basket
-        button_clicked_amount_4 += 1
-        price_basket += button_clicked_amount_4 + 2
-        basket_amount += 1
-
-def tree_button_clicked():
-    global apple_amount, price_tree, tree_amount, information, button_clicked_amount_5
-    if (apple_amount - price_tree) < 0:
-        information = "没有足够的苹果。你需要至少 " + str(price_tree) + " 个苹果 以购买 苹果树。"
-        unsuccessful_bought_sound()
-    else:
-        information = "你购买了 1 个 苹果树。"
-        successful_bought_sound()
-        apple_amount -= price_tree
-        button_clicked_amount_5 += 1
-        price_tree += button_clicked_amount_5 + 3
-        tree_amount += 1
-
-def garden_button_clicked():
-    global apple_amount, price_garden, garden_amount, information, button_clicked_amount_6
-    if (apple_amount - price_garden) < 0:
-        information = "没有足够的苹果。你需要至少 " + str(price_garden) + " 个苹果 以购买 果园。"
-        unsuccessful_bought_sound()
-    else:
-        information = "你购买了 1 个 果园。"
-        successful_bought_sound()
-        apple_amount -= price_garden
-        button_clicked_amount_6 += 1
-        price_garden += button_clicked_amount_6 + 4
-        garden_amount += 1
-
-def town_button_clicked():
-    global apple_amount, price_town, town_amount, information, button_clicked_amount_7
-    if (apple_amount - price_town) < 0:
-        information = "没有足够的苹果。你需要至少 " + str(price_town) + " 个苹果 以购买 水果镇。"
-        unsuccessful_bought_sound()
-    else:
-        information = "你购买了 1 个 水果镇。"
-        successful_bought_sound()
-        apple_amount -= price_town
-        button_clicked_amount_7 += 1
-        price_town += button_clicked_amount_7 + 5
-        town_amount += 1
-
-def country_button_clicked():
-    global apple_amount, price_country, country_amount, information, button_clicked_amount_8
-    if (apple_amount - price_country) < 0:
-        information = "没有足够的苹果。你需要至少 " + str(price_country) + " 个苹果 以购买 苹果工厂。"
-        unsuccessful_bought_sound()
-    else:
-        information = "你购买了 1 个 苹果工厂。"
-        successful_bought_sound()
-        apple_amount -= price_country
-        button_clicked_amount_8 += 1
-        price_country += button_clicked_amount_8 + 6
-        country_amount += 1
-
-def planet_button_clicked():
-    global apple_amount, price_planet, planet_amount, information, button_clicked_amount_9
-    if (apple_amount - price_planet) < 0:
-        information = "没有足够的苹果。你需要至少 " + str(price_planet) + " 个苹果 以购买 水果银行。"
-        unsuccessful_bought_sound()
-    else:
-        information = "你购买了 1 个 水果银行。"
-        successful_bought_sound()
-        apple_amount -= price_planet
-        button_clicked_amount_9 += 1
-        price_planet += button_clicked_amount_9 + 7
-        planet_amount += 1
-
-def wizardtower_button_clicked():
-    global apple_amount, price_wizardtower, wizardtower_amount, information, button_clicked_amount_10
-    if (apple_amount - price_wizardtower) < 0:
-        information = "没有足够的苹果。你需要至少 " + str(price_wizardtower) + " 个苹果 以购买 魔法巫师塔。"
-        unsuccessful_bought_sound()
-    else:
-        information = "你购买了 1 个 魔法巫师塔。"
-        successful_bought_sound()
-        apple_amount -= price_wizardtower
-        button_clicked_amount_10 += 1
-        price_wizardtower += button_clicked_amount_10 + 8
-        wizardtower_amount += 1
-
-def plane_button_clicked():
-    global apple_amount, price_plane, plane_amount, information, button_clicked_amount_11
-    if (apple_amount - price_plane) < 0:
-        information = "没有足够的苹果。你需要至少 " + str(price_plane) + " 个苹果 以购买 宇宙飞船。"
-        unsuccessful_bought_sound()
-    else:
-        information = "你购买了 1 个 宇宙飞船。"
-        successful_bought_sound()
-        apple_amount -= price_plane
-        button_clicked_amount_11 += 1
-        price_plane += button_clicked_amount_11 + 9
-        plane_amount += 1
-
-def hole_button_clicked():
-    global apple_amount, price_hole, hole_amount, information, button_clicked_amount_12
-    if (apple_amount - price_hole) < 0:
-        information = "没有足够的苹果。你需要至少 " + str(price_hole) + " 个苹果 以购买 虫洞。"
-        unsuccessful_bought_sound()
-    else:
-        information = "你购买了 1 个 虫洞。"
-        successful_bought_sound()
-        apple_amount -= price_hole
-        button_clicked_amount_12 += 1
-        price_hole += button_clicked_amount_12 + 10
-        hole_amount += 1
-
-def timemachine_button_clicked():
-    global apple_amount, price_timemachine, timemachine_amount, information, button_clicked_amount_13
-    if (apple_amount - price_timemachine) < 0:
-        information = "没有足够的苹果。你需要至少 " + str(price_timemachine) + " 个苹果 以购买 时光机。"
-        unsuccessful_bought_sound()
-    else:
-        information = "你购买了 1 个 时光机。"
-        successful_bought_sound()
-        apple_amount -= price_timemachine
-        button_clicked_amount_13 += 1
-        price_timemachine += button_clicked_amount_13 + 11
-        timemachine_amount += 1
-
-def glass_button_clicked():
-    global apple_amount, price_glass, glass_amount, information, button_clicked_amount_14
-    if (apple_amount - price_glass) < 0:
-        information = "没有足够的苹果。你需要至少 " + str(price_glass) + " 个苹果 以购买 三棱镜。"
-        unsuccessful_bought_sound()
-    else:
-        information = "你购买了 1 个 三棱镜。"
-        successful_bought_sound()
-        apple_amount -= price_glass
-        button_clicked_amount_14 += 1
-        price_glass += button_clicked_amount_14 + 12
-        glass_amount += 1
-
-def js_button_clicked():
-    global apple_amount, price_js, js_amount, information, button_clicked_amount_15
-    if (apple_amount - price_js) < 0:
-        information = "没有足够的苹果。你需要至少 " + str(price_js) + " 个苹果 以购买 Python 控制台。"
-        unsuccessful_bought_sound()
-    else:
-        information = "你购买了 1 个 Python 控制台。"
-        successful_bought_sound()
-        apple_amount -= price_js
-        button_clicked_amount_15 += 1
-        price_js += button_clicked_amount_15 + 13
-        js_amount += 1
-
-def upgrade_button_clicked():  # 升级运算
-    global apple_amount, information, upgrade_button_clicked_time
-    if (apple_amount - upgrade_price) < 0:
-        unsuccessful_bought_sound()
-        information = "没有足够的苹果。你需要至少 " + str(int(upgrade_price)) + " 个苹果以升级。"
-    else:
-        successful_bought_sound()
-        apple_amount -= upgrade_price
-        upgrade_button_clicked_time += 1
-        information = "你升级至了 Level " + str(upgrade_button_clicked_time + 1) + "！"
-
-def refresh_newspaper():  # 报纸刷新
-    global newspaper
-    newspaper['text'] = "报纸\n\n"+get_news()[random.randint(0,len(get_news())-1)]
-
-########## 递归显示运算 ##########
-
-def apple_amount_entry_update():  # 左侧信息栏显示递归
-    global apple_amount, add_per_click, auto_add_per_second
-    apple_amount_entry.delete(0, "end")
-    apple_amount_entry.insert(0, str(apple_amount))
-    apple_per_click_entry.delete(0, "end")
-    apple_per_click_entry.insert(0, ("+ " + str(add_per_click) + " / click"))
-    apple_per_second_entry.delete(0, "end")
-    apple_per_second_entry.insert(0, ("+ " + str(auto_add_per_second) + " / s"))
-    apple_amount_entry.after(100, apple_amount_entry_update)
-
-def entry_information_number_upgrade():  # 信息网格显示递归
-    global sponsor_amount, seed_amount, basket_amount, tree_amount, garden_amount
-    global town_amount, country_amount, planet_amount, wizardtower_amount, plane_amount
-    global hole_amount, timemachine_amount, glass_amount, js_amount
-    entry_information_number_23.delete(0, "end")
-    entry_information_number_23.insert(0, str(sponsor_amount))
-    entry_information_number_33.delete(0, "end")
-    entry_information_number_33.insert(0, str(seed_amount))
-    entry_information_number_43.delete(0, "end")
-    entry_information_number_43.insert(0, str(basket_amount))
-    entry_information_number_53.delete(0, "end")
-    entry_information_number_53.insert(0, str(tree_amount))
-    entry_information_number_63.delete(0, "end")
-    entry_information_number_63.insert(0, str(garden_amount))
-    entry_information_number_73.delete(0, "end")
-    entry_information_number_73.insert(0, str(town_amount))
-    entry_information_number_83.delete(0, "end")
-    entry_information_number_83.insert(0, str(country_amount))
-    entry_information_number_93.delete(0, "end")
-    entry_information_number_93.insert(0, str(planet_amount))
-    entry_information_number_103.delete(0, "end")
-    entry_information_number_103.insert(0, str(wizardtower_amount))
-    entry_information_number_113.delete(0, "end")
-    entry_information_number_113.insert(0, str(plane_amount))
-    entry_information_number_123.delete(0, "end")
-    entry_information_number_123.insert(0, str(hole_amount))
-    entry_information_number_133.delete(0, "end")
-    entry_information_number_133.insert(0, str(timemachine_amount))
-    entry_information_number_143.delete(0, "end")
-    entry_information_number_143.insert(0, str(glass_amount))
-    entry_information_number_153.delete(0, "end")
-    entry_information_number_153.insert(0, str(js_amount))
-
-    global price_sponsor, price_seed, price_basket, price_tree, price_garden
-    global price_town, price_country, price_planet, price_wizardtower, price_plane
-    global price_hole, price_timemachine, price_glass, price_js
-    entry_information_number_24.delete(0, "end")
-    entry_information_number_24.insert(0, str(price_sponsor))
-    entry_information_number_34.delete(0, "end")
-    entry_information_number_34.insert(0, str(price_seed))
-    entry_information_number_44.delete(0, "end")
-    entry_information_number_44.insert(0, str(price_basket))
-    entry_information_number_54.delete(0, "end")
-    entry_information_number_54.insert(0, str(price_tree))
-    entry_information_number_64.delete(0, "end")
-    entry_information_number_64.insert(0, str(price_garden))
-    entry_information_number_74.delete(0, "end")
-    entry_information_number_74.insert(0, str(price_town))
-    entry_information_number_84.delete(0, "end")
-    entry_information_number_84.insert(0, str(price_country))
-    entry_information_number_94.delete(0, "end")
-    entry_information_number_94.insert(0, str(price_planet))
-    entry_information_number_104.delete(0, "end")
-    entry_information_number_104.insert(0, str(price_wizardtower))
-    entry_information_number_114.delete(0, "end")
-    entry_information_number_114.insert(0, str(price_plane))
-    entry_information_number_124.delete(0, "end")
-    entry_information_number_124.insert(0, str(price_hole))
-    entry_information_number_134.delete(0, "end")
-    entry_information_number_134.insert(0, str(price_timemachine))
-    entry_information_number_144.delete(0, "end")
-    entry_information_number_144.insert(0, str(price_glass))
-    entry_information_number_154.delete(0, "end")
-    entry_information_number_154.insert(0, str(price_js))
-
-    global value_sponsor, value_seed, value_basket, value_tree, value_garden
-    global value_hole, value_timemachine, value_glass, value_js
-    global value_town, value_country, value_planet, value_wizardtower, value_plane
-    entry_information_number_30.delete(0, "end")
-    entry_information_number_30.insert(0, ("+" + str(value_sponsor * sponsor_amount)) + " / s")
-    entry_information_number_35.delete(0, "end")
-    entry_information_number_35.insert(0, ("+" + str(value_seed * seed_amount)) + " / s")
-    entry_information_number_45.delete(0, "end")
-    entry_information_number_45.insert(0, ("+" + str(value_basket * basket_amount)) + " / s")
-    entry_information_number_55.delete(0, "end")
-    entry_information_number_55.insert(0, ("+" + str(value_tree * tree_amount)) + " / s")
-    entry_information_number_65.delete(0, "end")
-    entry_information_number_65.insert(0, ("+" + str(value_garden * garden_amount)) + " / s")
-    entry_information_number_75.delete(0, "end")
-    entry_information_number_75.insert(0, ("+" + str(value_town * town_amount)) + " / s")
-    entry_information_number_85.delete(0, "end")
-    entry_information_number_85.insert(0, ("+" + str(value_country * country_amount)) + " / s")
-    entry_information_number_95.delete(0, "end")
-    entry_information_number_95.insert(0, ("+" + str(value_planet * planet_amount)) + " / s")
-    entry_information_number_105.delete(0, "end")
-    entry_information_number_105.insert(0, ("+" + str(value_wizardtower * wizardtower_amount)) + " / s")
-    entry_information_number_115.delete(0, "end")
-    entry_information_number_115.insert(0, ("+" + str(value_plane * plane_amount)) + " / s")
-    entry_information_number_130.delete(0, "end")
-    entry_information_number_130.insert(0, ("+" + str(value_hole * hole_amount)) + " / s")
-    entry_information_number_135.delete(0, "end")
-    entry_information_number_135.insert(0, ("+" + str(value_timemachine * timemachine_amount)) + " / s")
-    entry_information_number_145.delete(0, "end")
-    entry_information_number_145.insert(0, ("+" + str(value_glass * glass_amount)) + " / s")
-    entry_information_number_155.delete(0, "end")
-    entry_information_number_155.insert(0, ("+" + str(value_js * js_amount)) + " / s")
-    entry_information_number_155.after(recursion_time, entry_information_number_upgrade)
-
-def entry_information_information_upgrade():  # 信息栏显示递归
-    entry_information_information.delete(0, "end")
-    entry_information_information.insert(0, information)
-    entry_information_information.after(recursion_time, entry_information_information_upgrade)
-
-def statistics_text_upgrade():  # 统计信息显示递归
-    statistics_text.delete(1.0, tk.END)
-    statistics_text.insert("insert", ("现在的苹果数量：" + str(apple_amount) +
-                                      "\n总苹果数量：" + str(apple_amount_total) +
-                                      "\n总建筑数量：" + str(building_amount) +
-                                      "\n点击次数：" + str(click_time)))
-    statistics_text.after(recursion_time, statistics_text_upgrade)
-
-def upgrade_button_entry_update():  # 升级显示递归
-    upgrade_button_entry.delete(0, "end")
-    upgrade_button_entry.insert(0, "Level " + str(upgrade_button_clicked_time + 1) + " 至 Level " + str(upgrade_button_clicked_time + 2))
-    upgrade_button_entry_price.delete(0, "end")
-    upgrade_button_entry_price.insert(0, "价格：" + str(int(upgrade_price)))
-    upgrade_button_entry.after(recursion_time, upgrade_button_entry_update)
-
-def achievement_progress_update():  # 成就进度条显示递归
-    achievement_get_num = (achievement_1_get + achievement_2_get + achievement_3_get + achievement_4_get + achievement_5_get + 
-                          achievement_6_get + achievement_7_get + achievement_8_get + achievement_9_get + achievement_10_get + 
-                          achievement_11_get + achievement_12_get + achievement_13_get + achievement_14_get + achievement_15_get + 
-                          achievement_16_get + achievement_17_get + achievement_18_get + achievement_19_get + achievement_20_get + 
-                          achievement_21_get + achievement_22_get + achievement_23_get + achievement_24_get + achievement_25_get + 
-                          achievement_26_get + achievement_27_get + achievement_28_get + achievement_29_get + achievement_30_get + 
-                          achievement_31_get + achievement_32_get + achievement_33_get + achievement_34_get + achievement_35_get + 
-                          achievement_36_get + achievement_37_get + achievement_38_get + achievement_39_get + achievement_40_get + 
-                          achievement_41_get + achievement_42_get + achievement_43_get + achievement_44_get + achievement_45_get + 
-                          achievement_46_get + achievement_47_get + achievement_48_get + achievement_49_get + achievement_50_get + 
-                          achievement_51_get + achievement_52_get + achievement_53_get + achievement_54_get + achievement_55_get + 
-                          achievement_56_get + achievement_57_get + achievement_58_get + achievement_59_get + achievement_60_get + 
-                          achievement_61_get + achievement_62_get + achievement_63_get + achievement_64_get + achievement_65_get + 
-                          achievement_66_get + achievement_67_get + achievement_68_get + achievement_69_get + achievement_70_get + 
-                          achievement_71_get + achievement_72_get + achievement_73_get + achievement_74_get + achievement_75_get + 
-                          achievement_76_get + achievement_77_get + achievement_78_get + achievement_79_get + achievement_80_get + 
-                          achievement_81_get + achievement_82_get + achievement_83_get + achievement_84_get + achievement_85_get)
-    achievement_progress_bar['value'] = achievement_get_num
-    achievement_progress_entry.delete(0, "end")
-    achievement_progress_entry.insert(0, str(achievement_get_num) + "/" + str(achevement_num_all))
-    achievement_progress_entry.after(recursion_time, achievement_progress_update)
-
-def time_entry_update():  # 时间显示递归
-    time_entry.delete(0, "end")
-    time_entry.insert(0, time.asctime(time.localtime(time.time())))
-    time_entry.after(300, time_entry_update)
-
-def level_progress_bar_update():  # 等级进度条显示递归
-    if level_progress_now == 1: level_progress_bar['maximum'] = level_1; level_progress_bar['value'] = apple_amount_total
-    elif level_progress_now == 2: level_progress_bar['maximum'] = level_2 - level_1; level_progress_bar['value'] = apple_amount_total - level_1
-    elif level_progress_now == 3: level_progress_bar['maximum'] = level_3 - level_2; level_progress_bar['value'] = apple_amount_total - level_2
-    elif level_progress_now == 4: level_progress_bar['maximum'] = level_4 - level_3; level_progress_bar['value'] = apple_amount_total - level_3
-    elif level_progress_now == 5: level_progress_bar['maximum'] = level_5 - level_4; level_progress_bar['value'] = apple_amount_total - level_4
-    elif level_progress_now == 6: level_progress_bar['maximum'] = level_6 - level_5; level_progress_bar['value'] = apple_amount_total - level_5
-    elif level_progress_now == 7: level_progress_bar['maximum'] = level_7 - level_6; level_progress_bar['value'] = apple_amount_total - level_6
-    elif level_progress_now == 8: level_progress_bar['maximum'] = level_8 - level_7; level_progress_bar['value'] = apple_amount_total - level_7
-    elif level_progress_now == 9: level_progress_bar['maximum'] = level_9 - level_8; level_progress_bar['value'] = apple_amount_total - level_8
-    elif level_progress_now == 10: level_progress_bar['maximum'] = level_10 - level_9; level_progress_bar['value'] = apple_amount_total - level_9
-    elif level_progress_now == 11: level_progress_bar['maximum'] = level_11 - level_10; level_progress_bar['value'] = apple_amount_total - level_10
-    elif level_progress_now == 12: level_progress_bar['maximum'] = level_12 - level_11; level_progress_bar['value'] = apple_amount_total - level_11
-    elif level_progress_now == 13: level_progress_bar['maximum'] = level_13 - level_12; level_progress_bar['value'] = apple_amount_total - level_12
-    elif level_progress_now == 14: level_progress_bar['maximum'] = level_14 - level_13; level_progress_bar['value'] = apple_amount_total - level_13
-    elif level_progress_now == 15: level_progress_bar['maximum'] = level_15 - level_14; level_progress_bar['value'] = apple_amount_total - level_14
-    elif level_progress_now == 16: level_progress_bar['maximum'] = level_16 - level_15; level_progress_bar['value'] = apple_amount_total - level_15
-    elif level_progress_now == 17: level_progress_bar['maximum'] = level_17 - level_16; level_progress_bar['value'] = apple_amount_total - level_16
-    elif level_progress_now == 18: level_progress_bar['maximum'] = level_18 - level_17; level_progress_bar['value'] = apple_amount_total - level_17
-    elif level_progress_now == 19: level_progress_bar['maximum'] = level_19 - level_18; level_progress_bar['value'] = apple_amount_total - level_18
-    elif level_progress_now == 20: level_progress_bar['maximum'] = level_20 - level_19; level_progress_bar['value'] = apple_amount_total - level_19
-    level_progress_label_left.delete(0, "end")
-    level_progress_label_left.insert(0, "Level " + str(level_progress_now))
-    level_progress_label_right.delete(0, "end")
-    level_progress_label_right.insert(0, "Level " + str(level_progress_now + 1))
-    level_progress_bar.after(recursion_time, level_progress_bar_update)
+        time.sleep(5)
 
 ########## 其他窗口 ##########
 
@@ -1483,7 +1483,6 @@ root = tk.Tk()
 root.title("Apple Clicker© " + ver)
 root.iconphoto(True, tk.PhotoImage(file='./assets/app.png'))
 root.resizable(0, 0)
-root.overrideredirect(False)
 
 def SaveLastClickPos(event):  # 窗口拖动
     global lastClickX, lastClickY
@@ -1533,8 +1532,8 @@ button_click = tk.Button(frame_left,width=160, height=160, image=apple_img,
                          cursor='hand2', overrelief='sunken', command=click_button_clicked)  # 苹果点击按钮
 button_click.pack()
 
-blank = tk.Label(frame_left,text="     ")
-blank.pack()
+blank_pack = tk.Label(frame_left,text="     ")
+blank_pack.pack()
 
 newspaper = tk.Button(frame_left,width=20,height=5,cursor='hand2',overrelief='sunken',command=refresh_newspaper)
 newspaper.pack()
