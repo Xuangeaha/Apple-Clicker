@@ -5,7 +5,7 @@ import pygame
 import threading
 import cryptocode
 import tkinter as tk
-from ttkbootstrap import Style
+import ttkbootstrap as ttk
 from win10toast import ToastNotifier
 
 ver: str = 'beta0.7.0'  # 版本号
@@ -284,6 +284,78 @@ music_on: int = 1  # 音效开启
 
 recursion_time: int = 300  # 递归时间
 
+news_all = ['你想种苹果，但没人捧\n场。',  # 新闻
+            '你种的第一批苹果被扔\n进了垃圾堆。附近的浣\n熊都避而远之。',
+            '你的家人打算试尝一下\n你种的苹果。',
+            '你的苹果已经在邻里之\n间小有名气。',
+            '大家津津乐道于你的苹\n果。',
+            '方圆几里内的人都在讨\n论你的苹果。',
+            '你的苹果在整个镇上都\n有了名气！',
+            '孩子们都被你的苹果吸\n引了过来。',
+            '“我们是优秀的老爷爷。\n”——老爷爷',
+            '“乖来亲爷爷一下。”——\n老爷爷',
+            '新闻： 男子抢劫银行，\n只为买苹果。',
+            '你的苹果卖出了很多钱。\n',
+            '你的苹果有了自己的专\n题网站。',
+            '新闻：科学家说化石记\n录表明寒武纪大爆发时\n有苹果基的生物。',
+            '一家本地电视台对你的\n苹果进行了长达10分钟\n的新闻报导。你是成功人士了！（成功奖励是：一只苹果。）',
+            '新闻： 转基因苹果引发\n果农罢工！',
+            '新闻： 苹果工厂与全球\n变暖有关！',
+            '你的苹果已经畅销海外。\n',
+            '“有空给我打电话...”——\n老爷爷',
+            '人们跋山涉水只为品尝\n你的苹果。',
+            '新闻：苹果工厂罢工——\n工人们要求未来不再使\n用苹果做薪资！',
+            '新闻：专家称放养型农\n场苹果在小孩子们中流\n行。',
+            '新闻：全苹果菜谱的餐\n厅在市区开张。菜式包\n括红烧苹果、清蒸苹果、\n油炸苹果和苹果片。',
+            '新闻：小镇陷入苹果短\n缺，居民被迫吃梨，市\n长承认“还是不太一样”。',
+            '新闻：电影因缺少演员\n而被迫取消，导演哀痛\n表示 “每个人都待在家\n狂吃苹果”。',
+            '“扭曲吧” ——老爷爷',
+            '国王们都喜欢上你的苹\n果了。',
+            '“我们会再次升起。” \n——老爷爷',
+            '“荒芜吧” ——老爷爷',
+            '新闻：时光机被用于非\n法时间旅行！',
+            '新闻：“不得不说，苹果\n这东西确实有点不详” \n某些迷糊的白痴如此\n表示。',
+            '“仅仅是一个挫折。” ——\n老爷爷',
+            '“侵蚀吧” ——老爷爷',
+            '现在有专门为你的苹果\n而开设的博物馆了。',
+            '新闻：太空旅游业的蓬\n勃发展为遥远的行星吸引\n了更多无聊的百万富\n翁！ ',
+            '“痛苦吧” ——老爷爷',
+            '国际上为你的苹果设立\n了一个纪念日。',
+            '新闻：喜剧演员因不相\n关的消化不良而被迫取消\n苹果常规。',
+            '“我们没有饱足感。” ——\n老爷爷',
+            '新闻：在遥远的星球上\n发现苹果基生物！',
+            '“太晚了。” ——老爷爷',
+            '新闻：在遥远的星球上\n发现古代的水果文物。”骇\n人听闻的暗示。“科\n学家指出。',
+            '新闻：发现新的苹果星\n球，成为苹果贸易飞船的\n目标！',
+            '新闻：研究指出工厂制\n造的苹果将导致过胖。',
+            '新闻：时光机被卷入全\n城范围内的灾难！',
+            '你的苹果被认证为世界\n第八大奇迹。',
+            '新闻：苹果农场涉嫌雇\n佣身份不明的老年劳工！',
+            '中央决定对你的苹果产\n业进行监控。',
+            '新闻：研究指出苹果世\n界传送门会引发快速衰老和\n沉迷于烘焙。',
+            '新闻：国民对传送门中\n钻出的奇怪生物表示担忧！',
+            '宇宙中的上古神明为了\n尝你的苹果而苏醒。',
+            '新闻：大量苹果星球被\n发现有99.8%的正品苹果\n核心！',
+            '新闻：新苹果宗教横扫\n全国。',
+            '新闻：外国政治家卷入\n苹果走私丑闻',
+            '新闻：时光机被用于改\n写历史的阴谋！真的吗？',
+            '异次元生物跨越维度来\n品尝你的苹果。',
+            '宇宙间所有分子都以苹\n果的形式存在。',
+            '“你本来可以制止这一切\n的。”——老爷爷',
+            '新闻：科学家说化石记\n录表明寒武纪大爆发时有\n苹果基的生物。',
+            '你的苹果已经享誉全球。',
+            '外星生物盼望能尝到你\n的苹果。',
+            '你的苹果开始拥有了感\n知。',
+            '新闻：“我看过了未来，”\n时间机器驾驶员说，“我\n再也不想去那了。”',
+            '史册上添加了一整章来\n介绍你的苹果。',
+            '新闻：从过去带回来的\n苹果"不适合人类消费"，\n历史学家说。',
+            '新闻：神秘的非法苹果\n被缴获，警方表示“味道\n太糟了”。',
+            '你的苹果重建了宇宙规\n则。',
+            '“不久就该结束了。”——\n老爷爷',
+            '新闻： "宇宙中的循环\n太多了，" 研究者说：\n"只有苹果才能解决问题。"',
+            '新闻：科学家预言与苹\n果相关的世界末日即将\n到来，成为茶余饭后的笑料。',
+            '应该放下游戏了。']
+
 information: str = "欢迎来到 苹果点点乐©!  作者/版权: 轩哥啊哈OvO"  # 初始信息
 
 ########## 声音系统 ##########
@@ -352,6 +424,44 @@ def unsuccessful_bought_sound():  # 未成功购买建筑声音
         pygame.mixer.music.play(start=0.0)
     else:
         pass
+
+########## 内部用法 ##########
+
+def get_news():
+    news = []
+    if apple_amount_total == 0: 
+        for news_num in range(0,1): news.append(news_all[news_num])
+    elif apple_amount_total > 0: 
+        for news_num in range(2,4): news.append(news_all[news_num])
+    elif apple_amount_total > 30: 
+        for news_num in range(2,8): news.append(news_all[news_num])
+    elif apple_amount_total > 100: 
+        for news_num in range(2,10): news.append(news_all[news_num])
+    elif apple_amount_total > 500: 
+        for news_num in range(5,15): news.append(news_all[news_num])
+    elif apple_amount_total > 1000: 
+        for news_num in range(5,20): news.append(news_all[news_num])
+    elif apple_amount_total > 3000: 
+        for news_num in range(5,25): news.append(news_all[news_num])
+    elif apple_amount_total > 5000: 
+        for news_num in range(8,30): news.append(news_all[news_num])
+    elif apple_amount_total > 8000: 
+        for news_num in range(8,35): news.append(news_all[news_num])
+    elif apple_amount_total > 10000: 
+        for news_num in range(8,40): news.append(news_all[news_num])
+    elif apple_amount_total > 30000: 
+        for news_num in range(8,45): news.append(news_all[news_num])
+    elif apple_amount_total > 50000: 
+        for news_num in range(0,50): news.append(news_all[news_num])
+    elif apple_amount_total > 80000: 
+        for news_num in range(0,55): news.append(news_all[news_num])
+    elif apple_amount_total > 100000: 
+        for news_num in range(0,60): news.append(news_all[news_num])
+    elif apple_amount_total > 500000: 
+        for news_num in range(0,65): news.append(news_all[news_num])
+    elif apple_amount_total > 1000000: 
+        for news_num in range(0,70): news.append(news_all[news_num])
+    return news
 
 ########## 逻辑运算线程 ##########
 
@@ -681,6 +791,12 @@ def achievement_logic():  # 成就逻辑线程
         
         time.sleep(1)
 
+def newspaper_logic():  # 报纸逻辑线程
+    global newspaper
+    while True:
+        time.sleep(5)
+        newspaper['text'] = "报纸\n\n"+get_news()[random.randint(0,len(get_news())-1)]
+
 ########## 按钮点击运算 ##########
 
 def click_button_clicked():  # 苹果按钮点击运算
@@ -883,6 +999,10 @@ def upgrade_button_clicked():  # 升级运算
         upgrade_button_clicked_time += 1
         information = "你升级至了 Level " + str(upgrade_button_clicked_time + 1) + "！"
 
+def refresh_newspaper():  # 报纸刷新
+    global newspaper
+    newspaper['text'] = "报纸\n\n"+get_news()[random.randint(0,len(get_news())-1)]
+
 ########## 递归显示运算 ##########
 
 def apple_amount_entry_update():  # 左侧信息栏显示递归
@@ -1070,9 +1190,9 @@ def level_progress_bar_update():  # 等级进度条显示递归
 
 ########## 其他窗口 ##########
 
-def blank(win,row=int,column=int):  # 占位符
+def blank(win,rows=int,columns=int):  # 占位符
     blank = tk.Label(win,text="     ")
-    blank.grid(row=row,column=column)
+    blank.grid(row=rows,column=columns)
 
 def window_download():  # 存档下载窗口
     click_sound()
@@ -1377,7 +1497,7 @@ def Dragging(event):
 root.bind('<Button-1>', SaveLastClickPos)
 root.bind('<B1-Motion>', Dragging)
 
-style = Style(theme='journal')  # ttk窗口主题
+style = ttk.Style(theme='journal')  # ttk窗口主题
 
 auto_amount_add_per_second_thread = threading.Thread(target=main_operation_logic)  # 逻辑线程启动
 auto_amount_add_per_second_thread.start()
@@ -1390,6 +1510,9 @@ progress_bar_thread.start()
 
 achievement_thread = threading.Thread(target=achievement_logic)
 achievement_thread.start()
+
+newspaper_thread = threading.Thread(target=newspaper_logic)
+newspaper_thread.start()
 
 ##### 左侧框架 #####
 
@@ -1409,6 +1532,12 @@ apple_img = tk.PhotoImage(file="./assets/app.png")
 button_click = tk.Button(frame_left,width=160, height=160, image=apple_img, 
                          cursor='hand2', overrelief='sunken', command=click_button_clicked)  # 苹果点击按钮
 button_click.pack()
+
+blank = tk.Label(frame_left,text="     ")
+blank.pack()
+
+newspaper = tk.Button(frame_left,width=20,height=5,cursor='hand2',overrelief='sunken',command=refresh_newspaper)
+newspaper.pack()
 
 ##### 中间框架 #####
 
@@ -1637,13 +1766,11 @@ bottom_button_download = tk.Button(frame_buttons, text="导出存档..", width=1
                                    cursor='hand2', overrelief='sunken', command=window_download)
 bottom_button_download.grid(row=1, column=2, sticky='w')
 
-blank(frame_buttons,1,3)
 
 bottom_button_upload = tk.Button(frame_buttons, text="导入存档..", width=10, height=1, pady=3,
                                  cursor='hand2', overrelief='sunken', command=window_upload)
 bottom_button_upload.grid(row=1, column=4, sticky='w')
 
-blank(frame_buttons,1,5)
 
 bottom_button_about = tk.Button(frame_buttons, text="退出..", width=8, height=1, pady=3,
                                 cursor='hand2', overrelief='sunken', command=root_close)
