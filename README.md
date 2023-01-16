@@ -7,11 +7,11 @@
 游戏英文名：Apple Clicker
 作者：轩哥啊哈OvO
 开发者：轩哥啊哈OvO
-版本：Beta 0.4.0
+版本：Beta 0.8.1
 语言：Python
 模块：sys、time、random、pygame、tkinter、threading、win10toast、cryptocode、ttkbootstrap
 发布时间：2022-06-20 (Alpha 0.1.0)
-上次更新时间：2023-01-03 (Beta 0.4.0)
+上次更新时间：2023-01-16 (Beta 0.8.1)
 
 ```
 
@@ -36,6 +36,11 @@ Apple Clicker的游戏基本运算逻辑已经完成！
 以后会考虑美化它的窗口，提升游戏体验。
 
 # 开发日志
+
+## Beta 0.8.1 2023-01-16
+
+    ·修改部分函数名，提升代码可读性。
+    ·优化游戏，删除冗余代码，缩短启动时间。
 
 ## Beta 0.8.0 2023-01-10
 
