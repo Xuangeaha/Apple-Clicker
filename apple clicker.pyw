@@ -403,7 +403,7 @@ def pick_apple():  # 获得苹果声音
 def successful_bought_sound():  # 成功购买建筑声音
     if music_on == 1:
         pygame.mixer.init()
-        pygame.mixer.music.load(r"./sound/Succesfull_Hit.wav")
+        pygame.mixer.music.load(r"sound/Successful_Hit.wav")
         pygame.mixer.music.play()
 
 def unsuccessful_bought_sound():  # 未成功购买建筑声音
@@ -1207,6 +1207,7 @@ def newspaper_logic():  # 报纸逻辑线程
 
 def blank(win, rows=int, columns=int):  # 占位符
     blank = tk.Label(win, text="     ")
+    # noinspection PyTypeChecker
     blank.grid(row=rows, column=columns)
 
 def window_download():  # 存档下载窗口
@@ -1326,6 +1327,8 @@ def window_upload():  # 存档上传窗口
 
     root_upload.mainloop()
 
+
+# noinspection PyTypeChecker
 def window_about():  # 关于窗口
     click_sound()
     root_about = tk.Toplevel()
@@ -1461,6 +1464,8 @@ def window_cheat():  # 作弊传送门窗口
 
     root_cheat.mainloop()
 
+
+# noinspection PyTypeChecker
 def window_settings():  # 设置窗口
     click_sound()
     root_settings = tk.Tk()
